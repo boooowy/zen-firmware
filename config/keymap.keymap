@@ -38,10 +38,10 @@
 
         layer_2 {
             bindings = <
-&trans            &kp N1            &kp N2  &kp N3                &kp N4                 &kp N5     &kp N6    &kp N7    &kp N8        &kp N9     &kp N0     &kp DELETE
-&kp LA(LEFT_GUI)  &kp LS(LA(LCMD))  &kp AT  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp MINUS  &kp LEFT  &kp DOWN  &kp UP_ARROW  &kp RIGHT  &kp MINUS  &trans
-&kp LS(LCMD)      &trans            &trans  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp EQUAL  &trans    &trans    &kp TILDE     &kp GRAVE  &kp TILDE  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp NON_US_BACKSLASH
-&kp LEFT_SHIFT    &trans            &trans  &trans                &trans                 &trans     &trans    &trans    &trans        &trans     &trans     &kp PIPE
+&trans            &kp N1            &kp N2    &kp N3                &kp N4                 &kp N5     &kp N6    &kp N7    &kp N8        &kp N9     &kp N0     &trans
+&kp LA(LEFT_GUI)  &kp LS(LA(LCMD))  &kp PLUS  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp MINUS  &kp LEFT  &kp DOWN  &kp UP_ARROW  &kp RIGHT  &kp MINUS  &trans
+&kp LS(LCMD)      &trans            &trans    &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp EQUAL  &trans    &trans    &trans        &kp GRAVE  &kp TILDE  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp NON_US_BACKSLASH
+&kp LEFT_SHIFT    &trans            &trans    &trans                &trans                 &trans     &trans    &trans    &trans        &trans     &trans     &kp PIPE
             >;
         };
 
