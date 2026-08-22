@@ -2,6 +2,11 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 
+/* タイピング直後の誤接触でマウスレイヤー(1)に入らないようにする */
+&zip_temp_layer {
+    require-prior-idle-ms = <200>;
+};
+
 &pointing_listener {
     input-processors =
         <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
