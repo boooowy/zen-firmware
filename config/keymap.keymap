@@ -9,13 +9,13 @@
         speed_a_to_b: speed_a_to_b {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &tog 7 &tog 8>;
+            bindings = <&macro_tap>, <&tog 7 &tog 8>;
         };
 
         speed_b_to_c: speed_b_to_c {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &tog 8 &tog 9>;
+            bindings = <&macro_tap>, <&tog 8 &tog 9>;
         };
     };
 
@@ -52,10 +52,10 @@
 
         layer_2 {
             bindings = <
-&trans                  &kp N1            &kp N2    &kp N3                &kp N4                 &kp N5     &kp N6    &kp N7    &kp N8        &kp N9     &kp N0     &trans
-&kp LA(LEFT_GUI)        &kp LS(LA(LCMD))  &kp PLUS  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp MINUS  &kp LEFT  &kp DOWN  &kp UP_ARROW  &kp RIGHT  &kp MINUS  &trans
-&kp LS(LCMD)            &trans            &trans    &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp EQUAL  &trans    &trans    &trans        &kp GRAVE  &kp TILDE  &trans    &kp UNDER  &kp NON_US_BACKSLASH
-&kp LA(LS(LEFT_SHIFT))  &kp LEFT_ALT      &trans    &trans                &trans                 &trans     &trans    &trans    &trans        &trans     &trans     &kp PIPE
+&trans                  &kp N1            &kp N2    &kp N3                &kp N4                 &kp N5     &kp N6    &kp N7         &kp N8        &kp N9     &kp N0     &trans
+&kp LA(LEFT_GUI)        &kp LS(LA(LCMD))  &kp PLUS  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp MINUS  &kp LEFT  &kp DOWN       &kp UP_ARROW  &kp RIGHT  &kp MINUS  &trans
+&kp LS(LCMD)            &trans            &trans    &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp EQUAL  &trans    &trans         &trans        &kp GRAVE  &kp TILDE  &trans    &kp UNDER  &kp NON_US_BACKSLASH
+&kp LA(LS(LEFT_SHIFT))  &kp LEFT_ALT      &trans    &trans                &trans                 &trans     &trans    &kp BACKSPACE  &trans        &trans     &trans     &kp PIPE
             >;
         };
 
@@ -97,28 +97,28 @@
 
         layer_7 {
             bindings = <
-&trans  &trans  &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &speed_a_to_b  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &speed_a_to_b  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
         layer_8 {
             bindings = <
-&trans  &trans  &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &speed_b_to_c  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &speed_b_to_c  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
         layer_9 {
             bindings = <
-&trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &tog 9  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &tog 9  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
