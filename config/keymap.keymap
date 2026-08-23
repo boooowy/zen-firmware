@@ -38,10 +38,10 @@
 
         layer_2 {
             bindings = <
-&trans            &kp N1            &kp N2    &kp N3                &kp N4                 &kp N5     &kp N6    &kp N7    &kp N8        &kp N9     &kp N0     &trans
-&kp LA(LEFT_GUI)  &kp LS(LA(LCMD))  &kp PLUS  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp MINUS  &kp LEFT  &kp DOWN  &kp UP_ARROW  &kp RIGHT  &kp MINUS  &trans
-&kp LS(LCMD)      &trans            &trans    &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp EQUAL  &trans    &trans    &trans        &kp GRAVE  &kp TILDE  &trans    &kp UNDER  &kp NON_US_BACKSLASH
-&kp LEFT_SHIFT    &trans            &trans    &trans                &trans                 &trans     &trans    &trans    &trans        &trans     &trans     &kp PIPE
+&trans                  &kp N1            &kp N2    &kp N3                &kp N4                 &kp N5     &kp N6    &kp N7    &kp N8        &kp N9     &kp N0     &trans
+&kp LA(LEFT_GUI)        &kp LS(LA(LCMD))  &kp PLUS  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp MINUS  &kp LEFT  &kp DOWN  &kp UP_ARROW  &kp RIGHT  &kp MINUS  &trans
+&kp LS(LCMD)            &trans            &trans    &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp EQUAL  &trans    &trans    &trans        &kp GRAVE  &kp TILDE  &trans    &kp UNDER  &kp NON_US_BACKSLASH
+&kp LA(LS(LEFT_SHIFT))  &kp LEFT_ALT      &trans    &trans                &trans                 &trans     &trans    &trans    &trans        &trans     &trans     &kp PIPE
             >;
         };
 
@@ -78,6 +78,15 @@
 &trans        &kp F6        &kp F7        &kp F8        &kp F9        &kp F10     &kp HOME        &trans    &kp MINUS  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6
 &trans        &kp F11       &kp F12       &out OUT_USB  &out OUT_BLE  &bt BT_NXT  &bt BT_CLR_ALL  &trans    &kp END    &trans           &kp GRAVE        &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3
 &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans      &trans          &trans    &trans     &kp KP_NUMBER_0  &kp DOT          &kp EQUAL
+            >;
+        };
+
+        layer_7 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
