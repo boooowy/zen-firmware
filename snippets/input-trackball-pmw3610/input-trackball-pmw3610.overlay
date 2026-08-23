@@ -48,3 +48,7 @@
         process-next;
     };
 };
+
+&zip_temp_layer {
+    require-prior-idle-ms = <300>;
+};
