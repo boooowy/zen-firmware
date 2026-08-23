@@ -5,6 +5,20 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
+    macros {
+        speed_a_to_b: speed_a_to_b {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &tog 7 &tog 8>;
+        };
+
+        speed_b_to_c: speed_b_to_c {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &tog 8 &tog 9>;
+        };
+    };
+
     combos {
         compatible = "zmk,combos";
 
@@ -23,7 +37,7 @@
 &kp TAB    &kp Q   &kp W          &kp E     &kp R             &kp T  &kp Y      &kp U              &kp I  &kp O           &kp P          &kp BSPC
 &kp LCTRL  &kp A   &kp S          &kp D     &kp F             &kp G  &kp H      &kp J              &kp K  &kp L           &kp SEMICOLON  &kp ENTER
 &kp LSHFT  &kp Z   &kp X          &kp C     &kp V             &kp B  &kp SPACE  &kp RIGHT_COMMAND  &kp N  &kp M           &kp COMMA      &kp DOT    &kp SLASH  &mt RSHFT SINGLE_QUOTE
-&mo 2      &trans  &kp LC(SPACE)  &kp LALT  &kp LEFT_COMMAND  &mo 2  &lt 3 ESC  &kp SPACE          &mo 6  &kp LEFT_ARROW  &kp BACKSLASH  &kp MINUS
+&mo 2      &tog 7  &kp LC(SPACE)  &kp LALT  &kp LEFT_COMMAND  &mo 2  &lt 3 ESC  &kp SPACE          &mo 6  &kp LEFT_ARROW  &kp BACKSLASH  &kp MINUS
             >;
         };
 
@@ -83,10 +97,28 @@
 
         layer_7 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &speed_a_to_b  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        layer_8 {
+            bindings = <
+&trans  &trans  &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &speed_b_to_c  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        layer_9 {
+            bindings = <
+&trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &tog 9  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
