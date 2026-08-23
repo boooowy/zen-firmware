@@ -125,3 +125,7 @@
     kscan = <&kscan0>;
     transform = <&zen_transform>;
 };
+
+&zip_temp_layer {
+    require-prior-idle-ms = <300>;
+};
