@@ -27,7 +27,7 @@
     /omit-if-no-ref/ zip_delay_temp_layer: zip_delay_temp_layer {
         compatible = "zmk,input-processor-delay-temp-layer";
         #input-processor-cells = <2>;
-        activation-delay-ms = <300>;
+        activation-delay-ms = <100>;
         activation-distance = <0>;
         movement-gap-ms = <50>;
         require-prior-idle-ms = <200>;
