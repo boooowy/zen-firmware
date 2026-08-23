@@ -1,0 +1,56 @@
+# Copyright (c) 2024, The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+description: |
+  Input Processor for temporarily enabling a layer, but only after the pointing
+  device has been moving continuously for a given amount of time (and optionally
+  a given distance). Pointer events are always passed through unmodified.
+
+compatible: "zmk,input-processor-delay-temp-layer"
+
+properties:
+  "#input-processor-cells":
+    type: int
+    required: true
+    const: 2
+    description: "Number of cells in input processor specifier (layer index, timeout in ms)"
+
+  activation-delay-ms:
+    type: int
+    required: false
+    default: 0
+    description: |
+      Time in milliseconds the pointer must keep moving before the layer is
+      activated. 0 activates on the first movement, like the stock temp layer.
+
+  activation-distance:
+    type: int
+    required: false
+    default: 0
+    description: |
+      Accumulated movement (sum of |x| and |y| deltas within one movement burst)
+      required before the layer is activated. 0 disables the distance condition.
+
+  movement-gap-ms:
+    type: int
+    required: false
+    default: 50
+    description: |
+      A pause of at least this many milliseconds between movement events ends the
+      current movement burst, resetting the elapsed time and distance counters.
+
+  require-prior-idle-ms:
+    type: int
+    required: false
+    default: 0
+    description: Time in milliseconds that must pass after the last keystroke before the layer can be toggled
+
+  excluded-positions:
+    type: array
+    required: false
+    default: []
+    description: Array of key positions that will NOT trigger layer deactivation when pressed
+
+input-processor-cells:
+  - param1
+  - param2

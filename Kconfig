@@ -196,3 +196,18 @@ config IQS7211E_SCROLLER_INERTIA_STOP_THRESHOLD_Q8
       Q8 means 256 equals 1 wheel unit per 10ms.
 
 endif
+
+config ZMK_INPUT_PROCESSOR_DELAY_TEMP_LAYER
+    bool "Delayed temporary layer input processor"
+    default y
+    depends on ZMK_POINTING
+    depends on !ZMK_SPLIT || ZMK_SPLIT_ROLE_CENTRAL
+    depends on DT_HAS_ZMK_INPUT_PROCESSOR_DELAY_TEMP_LAYER_ENABLED
+    help
+      Temp layer input processor that only activates the layer after the pointing
+      device has been moving for a configurable amount of time/distance.
+
+config ZMK_INPUT_PROCESSOR_DELAY_TEMP_LAYER_MAX_ACTION_EVENTS
+    int "Delayed Temporary Layer Input Processor Max Action Events"
+    default 4
+    depends on ZMK_INPUT_PROCESSOR_DELAY_TEMP_LAYER

@@ -22,6 +22,17 @@
         >;
     };
 
+    /* トラックボールを一定時間動かし続けたときだけマウスレイヤー(1)に入る
+       (ZMK標準の zip_temp_layer は最初の1イベントで即レイヤーONになるため自作) */
+    /omit-if-no-ref/ zip_delay_temp_layer: zip_delay_temp_layer {
+        compatible = "zmk,input-processor-delay-temp-layer";
+        #input-processor-cells = <2>;
+        activation-delay-ms = <100>;
+        activation-distance = <0>;
+        movement-gap-ms = <50>;
+        require-prior-idle-ms = <200>;
+    };
+
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
 
