@@ -32,7 +32,7 @@
 &trans  &trans  &trans  &trans  &trans    &trans    &trans                &mkp LCLK  &mo 4             &mkp RCLK  &trans                 &trans
 &trans  &trans  &trans  &mo 4   &mkp MB1  &mkp MB2  &kp RG(LEFT_BRACKET)  &mkp MB1   &mkp MB3          &mkp MB2   &kp RG(RIGHT_BRACKET)  &trans
 &trans  &trans  &trans  &trans  &trans    &trans    &trans                &trans     &kp LC(UP_ARROW)  &trans     &trans                 &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &mkp MB1  &trans                &trans     &trans            &trans     &trans                 &trans
+&trans  &trans  &trans  &trans  &trans    &trans    &trans                &trans     &trans            &trans     &trans                 &trans
             >;
         };
 
