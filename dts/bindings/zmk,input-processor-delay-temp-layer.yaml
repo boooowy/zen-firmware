@@ -15,6 +15,12 @@ properties:
     const: 2
     description: "Number of cells in input processor specifier (layer index, timeout in ms)"
 
+  track-remainders:
+    type: boolean
+    description: |
+      Standard input processor property, read by zmk's input listener for every
+      processor node. Unused by this processor.
+
   activation-delay-ms:
     type: int
     required: false
