@@ -33,7 +33,7 @@
             key-positions = <15 16>;
             require-prior-idle-ms = <0>;
             timeout-ms = <30>;
-            layers = <0>;
+            layers = <0 7 8 9>;
         };
     };
 
