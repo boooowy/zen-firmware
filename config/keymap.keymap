@@ -35,6 +35,13 @@
             timeout-ms = <30>;
             layers = <0 7 8 9>;
         };
+
+        haifun {
+            bindings = <&kp MINUS>;
+            key-positions = <20 21>;
+            timeout-ms = <30>;
+            layers = <0 7 8 9>;
+        };
     };
 
     keymap {
