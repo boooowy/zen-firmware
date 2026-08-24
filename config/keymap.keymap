@@ -27,6 +27,14 @@
             key-positions = <28 29>;
             layers = <2>;
         };
+
+        switch-ime {
+            bindings = <&kp LC(SPACE)>;
+            key-positions = <15 16>;
+            require-prior-idle-ms = <0>;
+            timeout-ms = <30>;
+            layers = <0>;
+        };
     };
 
     keymap {
