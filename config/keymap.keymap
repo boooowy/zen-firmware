@@ -42,14 +42,6 @@
             timeout-ms = <30>;
             layers = <0 7 8 9>;
         };
-
-        switch-trackball-layer {
-            bindings = <&mo 1>;
-            key-positions = <44 43>;
-            timeout-ms = <30>;
-            slow-release;
-            layers = <0 7 8 9>;
-        };
     };
 
     keymap {
