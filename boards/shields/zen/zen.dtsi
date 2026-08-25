@@ -28,7 +28,7 @@
         compatible = "zmk,input-processor-delay-temp-layer";
         #input-processor-cells = <2>;
         activation-delay-ms = <0>;
-        activation-distance = <64>;
+        activation-distance = <32>;   /* 約1mm。12は緩すぎ・64は厳しすぎだったため中間 */
         movement-gap-ms = <50>;
         require-prior-idle-ms = <200>;
     };
