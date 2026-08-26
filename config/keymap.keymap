@@ -49,6 +49,13 @@
             timeout-ms = <30>;
             layers = <0 5>;
         };
+
+        backspace {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <19 20>;
+            timeout-ms = <30>;
+            layers = <0 7 8 9>;
+        };
     };
 
     keymap {
