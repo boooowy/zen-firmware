@@ -51,7 +51,7 @@
         status = "okay";
         input-processors =
             <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
-            <&zip_delay_temp_layer 1 500>;
+            <&zip_delay_temp_layer 1 1000>;
 
         scroller {
             layers = <4>;
@@ -70,7 +70,7 @@
         status = "okay";
         input-processors =
             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
-            <&zip_delay_temp_layer 1 500>;
+            <&zip_delay_temp_layer 1 1000>;
 
         scroller {
             layers = <4>;
@@ -88,7 +88,7 @@
         status = "okay";
         input-processors =
             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
-            <&zip_delay_temp_layer 1 500>;
+            <&zip_delay_temp_layer 1 1000>;
 
         scroller {
             layers = <4>;
@@ -100,8 +100,4 @@
             process-next;
         };
     };
-};
-
-&zip_delay_temp_layer {
-    require-prior-idle-ms = <300>;
 };
