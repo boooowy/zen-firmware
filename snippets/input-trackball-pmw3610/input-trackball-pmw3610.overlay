@@ -36,7 +36,7 @@
 &pointing_listener {
     input-processors =
         <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,
-        <&zip_delay_temp_layer 1 500>;
+        <&zip_delay_temp_layer 1 1000>;
 
     scroller {
         layers = <4>;
@@ -47,31 +47,30 @@
         process-next;
     };
 
+    /* 速度プリセットでは zip_delay_temp_layer を zip_xy_scaler より「前」に置く。
+       後ろに置くと縮小後の移動量で activation-distance を判定してしまい、
+       プリセットが遅いほどマウスレイヤーに入りにくくなる */
     speed_preset_a {
         layers = <7>;
         input-processors =
             <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,
-            <&zip_xy_scaler 4 5>,
-            <&zip_delay_temp_layer 1 500>;
+            <&zip_delay_temp_layer 1 1000>,
+            <&zip_xy_scaler 4 5>;
     };
 
     speed_preset_b {
         layers = <8>;
         input-processors =
             <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,
-            <&zip_xy_scaler 3 5>,
-            <&zip_delay_temp_layer 1 500>;
+            <&zip_delay_temp_layer 1 1000>,
+            <&zip_xy_scaler 3 5>;
     };
 
     speed_preset_c {
         layers = <9>;
         input-processors =
             <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,
-            <&zip_xy_scaler 2 5>,
-            <&zip_delay_temp_layer 1 500>;
+            <&zip_delay_temp_layer 1 1000>,
+            <&zip_xy_scaler 2 5>;
     };
-};
-
-&zip_delay_temp_layer {
-    require-prior-idle-ms = <300>;
 };

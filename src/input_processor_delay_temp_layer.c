@@ -5,7 +5,8 @@
  *
  * Based on ZMK's input_processor_temp_layer.c (app/src/pointing/), with an
  * additional requirement that the pointer keeps moving for a while before the
- * layer gets activated. Pointer events themselves are always passed through
+ * layer gets activated, and with that movement threshold graded by how recently
+ * a key was tapped. Pointer events themselves are always passed through
  * untouched, so cursor movement stays immediate.
  */
 
@@ -31,6 +32,8 @@ struct delay_temp_layer_config {
     int16_t require_prior_idle_ms;
     uint16_t activation_delay_ms;
     uint16_t activation_distance;
+    uint16_t activation_distance_after_typing;
+    uint16_t typing_window_ms;
     uint16_t movement_gap_ms;
     const uint16_t *excluded_positions;
     size_t num_positions;
@@ -273,8 +276,20 @@ static int delay_temp_layer_handle_event(const struct device *dev, struct input_
 
     const bool moved_long_enough =
         (now - data->state.burst_start_ms) >= (int64_t)cfg->activation_delay_ms;
+
+    /* The same small movement means opposite things depending on context: brushing
+     * the ball mid-sentence is an accident, nudging it after a pause is intent. So
+     * pick the distance threshold from how recently a key was tapped. */
+    const bool recently_typed =
+        cfg->typing_window_ms > 0 &&
+        (now - data->state.last_tapped_timestamp) < (int64_t)cfg->typing_window_ms;
+    const uint16_t required_distance =
+        (recently_typed && cfg->activation_distance_after_typing > 0)
+            ? cfg->activation_distance_after_typing
+            : cfg->activation_distance;
+
     const bool moved_far_enough =
-        cfg->activation_distance == 0 || data->state.burst_distance >= cfg->activation_distance;
+        required_distance == 0 || data->state.burst_distance >= required_distance;
 
     if (!data->state.is_active && moved_long_enough && moved_far_enough &&
         !should_quick_tap(cfg, data->state.last_tapped_timestamp, now)) {
@@ -311,7 +326,9 @@ static const struct zmk_input_processor_driver_api delay_temp_layer_driver_api =
 
 /* Event Listeners Conditions */
 #define NEEDS_POSITION_HANDLERS(n, ...) DT_INST_PROP_HAS_IDX(n, excluded_positions, 0)
-#define NEEDS_KEYCODE_HANDLERS(n, ...) (DT_INST_PROP_OR(n, require_prior_idle_ms, 0) > 0)
+#define NEEDS_KEYCODE_HANDLERS(n, ...)                                                             \
+    ((DT_INST_PROP_OR(n, require_prior_idle_ms, 0) > 0) ||                                         \
+     (DT_INST_PROP_OR(n, typing_window_ms, 0) > 0))
 
 /* Event Handlers Registration */
 ZMK_LISTENER(processor_delay_temp_layer, handle_event_dispatcher);
@@ -334,6 +351,9 @@ ZMK_SUBSCRIPTION(processor_delay_temp_layer, zmk_keycode_state_changed);
         .require_prior_idle_ms = DT_INST_PROP_OR(n, require_prior_idle_ms, 0),                     \
         .activation_delay_ms = DT_INST_PROP_OR(n, activation_delay_ms, 0),                         \
         .activation_distance = DT_INST_PROP_OR(n, activation_distance, 0),                         \
+        .activation_distance_after_typing =                                                        \
+            DT_INST_PROP_OR(n, activation_distance_after_typing, 0),                               \
+        .typing_window_ms = DT_INST_PROP_OR(n, typing_window_ms, 0),                               \
         .movement_gap_ms = DT_INST_PROP_OR(n, movement_gap_ms, 50),                                \
         .excluded_positions = excluded_positions_##n,                                              \
         .num_positions = DT_INST_PROP_LEN(n, excluded_positions),                                  \

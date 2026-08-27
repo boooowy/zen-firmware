@@ -23,14 +23,41 @@
     };
 
     /* トラックボールを一定量動かしたときだけマウスレイヤー(1)に入る
-       (ZMK標準の zip_temp_layer は最初の1イベントで即レイヤーONになるため自作) */
+       (ZMK標準の zip_temp_layer は最初の1イベントで即レイヤーONになるため自作)
+
+       設計方針: 「入口はゆるく、出口を作る」
+         - 入口(誤爆防止)は require-prior-idle-ms が主担当。距離は補助に留める
+         - 出口は excluded-positions に載っていないキーの打鍵で即解除
+       このプロパティ群はここ1箇所でのみ定義する (DTSは後勝ちのため多重定義は事故のもと) */
     /omit-if-no-ref/ zip_delay_temp_layer: zip_delay_temp_layer {
         compatible = "zmk,input-processor-delay-temp-layer";
         #input-processor-cells = <2>;
         activation-delay-ms = <0>;
-        activation-distance = <64>;
-        movement-gap-ms = <50>;
-        require-prior-idle-ms = <200>;
+        /* 断続的にゆっくり転がしても距離カウンタがリセットされないよう長めに取る */
+        movement-gap-ms = <150>;
+
+        /* 最後の打鍵からの経過時間で必要な移動量を三段階に切り替える (cpi=800)
+             0-400ms    : 距離に関係なく入らない          (require-prior-idle-ms)
+             400-1500ms : 96カウント ≒ 3.0mm  が必要      (activation-distance-after-typing)
+             1500ms-    :  8カウント ≒ 0.25mm で入る      (activation-distance)
+           打鍵中の微振動は 3mm に届かず、打鍵していないときは触れば入る。
+           入りやすくても実害がないのは excluded-positions が打鍵で即解除するため */
+        require-prior-idle-ms = <400>;
+        activation-distance = <8>;
+        activation-distance-after-typing = <96>;
+        typing-window-ms = <1500>;
+
+        /* ここに列挙した位置「以外」を押すとマウスレイヤーが即解除される。
+           = マウス操作中に押したいキーのホワイトリスト。
+           レイヤー1の割り当てを変えたら必ずここも更新すること */
+        excluded-positions = <
+            3  4                 /* E R  -> Gui+Shift+[ ] タブ切替 */
+            7  8  9              /* U I O -> LCLK / mo 4 / RCLK */
+            15 16 17             /* D F G -> mo 4 / MB1 / MB2 */
+            18 19 20 21 22       /* H J K L ; -> Gui+[ / MB1 / MB3 / MB2 / Gui+] */
+            12 24 31 41 42       /* LCTRL LSHFT RCMD LALT LCMD */
+            39                   /* tog 7 トラックボール速度切替 */
+        >;
     };
 
     kscan0: kscan {
