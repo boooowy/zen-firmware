@@ -72,10 +72,10 @@
 
         layer_1 {
             bindings = <
-&trans  &trans  &trans  &kp LG(LS(LEFT_BRACKET))  &kp LG(LS(RIGHT_BRACKET))  &trans    &trans                &mkp LCLK  &mo 4     &mkp RCLK  &trans                 &trans
-&trans  &trans  &trans  &mo 4                     &mkp MB1                   &mkp MB2  &kp RG(LEFT_BRACKET)  &mkp MB1   &mkp MB3  &mkp MB2   &kp RG(RIGHT_BRACKET)  &trans
-&trans  &trans  &trans  &trans                    &trans                     &trans    &trans                &trans     &trans    &trans     &trans                 &trans  &trans  &trans
-&trans  &trans  &trans  &trans                    &trans                     &trans    &trans                &trans     &trans    &trans     &trans                 &trans
+&trans  &trans  &trans  &trans  &trans    &trans    &trans                &mkp LCLK  &mo 4     &mkp RCLK  &trans                 &trans
+&trans  &trans  &trans  &mo 4   &mkp MB1  &mkp MB2  &kp RG(LEFT_BRACKET)  &mkp MB1   &mkp MB3  &mkp MB2   &kp RG(RIGHT_BRACKET)  &trans
+&trans  &trans  &trans  &trans  &trans    &trans    &trans                &trans     &trans    &trans     &trans                 &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans    &trans    &trans                &trans     &trans    &trans     &trans                 &trans
             >;
         };
 
@@ -108,10 +108,10 @@
 
         layer_5 {
             bindings = <
-&trans          &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5  &kp NUMBER_6    &kp N7          &kp N8                  &kp N9           &kp N0  &trans
+&trans          &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5    &kp NUMBER_6    &kp N7          &kp N8                  &kp N9           &kp N0  &trans
 &kp LCTRL       &kp LEFT_GUI  &trans        &mo 4         &mkp MB1      &mkp MB2  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW            &kp RIGHT_ARROW  &trans  &trans
-&kp LEFT_SHIFT  &trans        &trans        &trans        &trans        &trans  &trans          &trans          &trans                  &trans           &trans  &trans  &trans  &trans
-&trans          &trans        &trans        &trans        &trans        &trans  &trans          &kp RIGHT_ALT   &kp LS(LA(LEFT_SHIFT))  &trans           &trans  &trans
+&kp LEFT_SHIFT  &trans        &trans        &trans        &trans        &trans    &trans          &trans          &trans                  &trans           &trans  &trans  &trans  &trans
+&trans          &trans        &trans        &trans        &trans        &trans    &trans          &kp RIGHT_ALT   &kp LS(LA(LEFT_SHIFT))  &trans           &trans  &trans
             >;
         };
 
