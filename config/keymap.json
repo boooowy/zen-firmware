@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "474d00ff704899b366924b23b111f8f25d4f39c3",
+  "source_commit": "a3cb9658fcb9c987f02046447511a58960bb69ae",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -409,6 +409,7 @@
       "index": 0,
       "id": "0",
       "name": "layer_0",
+      "display_name": null,
       "keys": [
         {
           "tap": "TAB",
@@ -677,12 +678,12 @@
           "action": "mt"
         },
         {
-          "tap": "5",
+          "tap": "1",
           "hold": null,
           "type": null,
-          "binding": "&mo 5",
+          "binding": "&mo 1",
           "action": "mo",
-          "layer": 5
+          "layer": 1
         },
         {
           "tap": "7",
@@ -693,11 +694,11 @@
           "layer": 7
         },
         {
-          "tap": "Ctl+SPACE",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&kp LC(SPACE)",
-          "action": "kp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
           "tap": "LALT",
@@ -731,10 +732,11 @@
         },
         {
           "tap": "SPACE",
-          "hold": null,
+          "hold": "5",
           "type": null,
-          "binding": "&kp SPACE",
-          "action": "kp"
+          "binding": "&lt 5 SPACE",
+          "action": "lt",
+          "layer": 5
         },
         {
           "tap": "6",
@@ -745,11 +747,11 @@
           "layer": 6
         },
         {
-          "tap": "LEFT ARROW",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&kp LEFT_ARROW",
-          "action": "kp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
           "tap": "\\",
@@ -771,6 +773,7 @@
       "index": 1,
       "id": "1",
       "name": "layer_1",
+      "display_name": null,
       "keys": [
         {
           "tap": "▽",
@@ -794,18 +797,18 @@
           "action": "trans"
         },
         {
-          "tap": "Gui+Sft+[",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&kp LG(LS(LEFT_BRACKET))",
-          "action": "kp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
-          "tap": "Gui+Sft+]",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&kp LG(LS(RIGHT_BRACKET))",
-          "action": "kp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
           "tap": "▽",
@@ -1041,9 +1044,9 @@
           "action": "trans"
         },
         {
-          "tap": "▽",
+          "tap": "",
           "hold": null,
-          "type": "trans",
+          "type": "held",
           "binding": "&trans",
           "action": "trans"
         },
@@ -1130,6 +1133,7 @@
       "index": 2,
       "id": "2",
       "name": "layer_2",
+      "display_name": null,
       "keys": [
         {
           "tap": "▽",
@@ -1405,11 +1409,11 @@
           "action": "kp"
         },
         {
-          "tap": "LEFT ALT",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&kp LEFT_ALT",
-          "action": "kp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
           "tap": "▽",
@@ -1487,6 +1491,7 @@
       "index": 3,
       "id": "3",
       "name": "layer_3",
+      "display_name": null,
       "keys": [
         {
           "tap": "▽",
@@ -1531,10 +1536,10 @@
           "action": "kp"
         },
         {
-          "tap": "LCTRL",
+          "tap": "^",
           "hold": null,
           "type": null,
-          "binding": "&kp LCTRL",
+          "binding": "&kp CARET",
           "action": "kp"
         },
         {
@@ -1844,6 +1849,7 @@
       "index": 4,
       "id": "4",
       "name": "layer_4",
+      "display_name": null,
       "keys": [
         {
           "tap": "▽",
@@ -2112,9 +2118,9 @@
           "action": "trans"
         },
         {
-          "tap": "▽",
+          "tap": "",
           "hold": null,
-          "type": "trans",
+          "type": "held",
           "binding": "&trans",
           "action": "trans"
         },
@@ -2201,6 +2207,7 @@
       "index": 5,
       "id": "5",
       "name": "layer_5",
+      "display_name": null,
       "keys": [
         {
           "tap": "▽",
@@ -2287,11 +2294,96 @@
           "action": "trans"
         },
         {
+          "tap": "LCTRL",
+          "hold": null,
+          "type": null,
+          "binding": "&kp LCTRL",
+          "action": "kp"
+        },
+        {
+          "tap": "LEFT GUI",
+          "hold": null,
+          "type": null,
+          "binding": "&kp LEFT_GUI",
+          "action": "kp"
+        },
+        {
           "tap": "▽",
           "hold": null,
           "type": "trans",
           "binding": "&trans",
           "action": "trans"
+        },
+        {
+          "tap": "4",
+          "hold": null,
+          "type": null,
+          "binding": "&mo 4",
+          "action": "mo",
+          "layer": 4
+        },
+        {
+          "tap": "&mkp MB1",
+          "hold": null,
+          "type": null,
+          "binding": "&mkp MB1",
+          "action": "mkp"
+        },
+        {
+          "tap": "&mkp MB2",
+          "hold": null,
+          "type": null,
+          "binding": "&mkp MB2",
+          "action": "mkp"
+        },
+        {
+          "tap": "LEFT ARROW",
+          "hold": null,
+          "type": null,
+          "binding": "&kp LEFT_ARROW",
+          "action": "kp"
+        },
+        {
+          "tap": "DOWN ARROW",
+          "hold": null,
+          "type": null,
+          "binding": "&kp DOWN_ARROW",
+          "action": "kp"
+        },
+        {
+          "tap": "UP ARROW",
+          "hold": null,
+          "type": null,
+          "binding": "&kp UP_ARROW",
+          "action": "kp"
+        },
+        {
+          "tap": "RIGHT ARROW",
+          "hold": null,
+          "type": null,
+          "binding": "&kp RIGHT_ARROW",
+          "action": "kp"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "LEFT SHIFT",
+          "hold": null,
+          "type": null,
+          "binding": "&kp LEFT_SHIFT",
+          "action": "kp"
         },
         {
           "tap": "▽",
@@ -2385,46 +2477,11 @@
           "action": "trans"
         },
         {
-          "tap": "▽",
+          "tap": "Sft+LEFT ALT",
           "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
-        },
-        {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
-        },
-        {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
-        },
-        {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
-        },
-        {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
-        },
-        {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
+          "type": null,
+          "binding": "&kp LS(LEFT_ALT)",
+          "action": "kp"
         },
         {
           "tap": "▽",
@@ -2502,55 +2559,6 @@
           "type": "trans",
           "binding": "&trans",
           "action": "trans"
-        },
-        {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
-        },
-        {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
-        },
-        {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
-        },
-        {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
-        },
-        {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
-        },
-        {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
-        },
-        {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
         }
       ]
     },
@@ -2558,6 +2566,7 @@
       "index": 6,
       "id": "6",
       "name": "layer_6",
+      "display_name": null,
       "keys": [
         {
           "tap": "▽",
@@ -2915,6 +2924,7 @@
       "index": 7,
       "id": "7",
       "name": "layer_7",
+      "display_name": null,
       "keys": [
         {
           "tap": "▽",
@@ -3272,6 +3282,7 @@
       "index": 8,
       "id": "8",
       "name": "layer_8",
+      "display_name": null,
       "keys": [
         {
           "tap": "▽",
@@ -3629,6 +3640,7 @@
       "index": 9,
       "id": "9",
       "name": "layer_9",
+      "display_name": null,
       "keys": [
         {
           "tap": "▽",
@@ -4029,6 +4041,22 @@
       "timeout_ms": 30,
       "require_prior_idle_ms": 0,
       "key": "-"
+    },
+    {
+      "name": "backspace",
+      "positions": [
+        19,
+        20
+      ],
+      "layers": [
+        0,
+        7,
+        8,
+        9
+      ],
+      "timeout_ms": 30,
+      "require_prior_idle_ms": 0,
+      "key": "BACKSPACE"
     }
   ]
 }

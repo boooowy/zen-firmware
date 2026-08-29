@@ -120,6 +120,11 @@ def parse_int(child_body: str, prop: str) -> int | None:
     return values[0] if values else None
 
 
+def parse_string(child_body: str, prop: str) -> str | None:
+    match = re.search(rf'\b{re.escape(prop)}\s*=\s*"([^"]*)"', child_body)
+    return match.group(1) if match else None
+
+
 def parse_bindings(layer_body: str) -> list[str]:
     """Split a layer bindings array into one string per key.
 
@@ -146,15 +151,23 @@ def binding_metadata(binding: str) -> dict:
     return meta
 
 
-def parse_keymap_source(keymap_path: Path) -> tuple[list[tuple[str, list[str]]], list[dict]]:
+def parse_keymap_source(keymap_path: Path) -> tuple[list[dict], list[dict]]:
     """Read layer nodes and combo definitions out of the keymap itself."""
     text = strip_comments(keymap_path.read_text(encoding="utf-8"))
 
-    layer_sources: list[tuple[str, list[str]]] = []
+    layer_sources: list[dict] = []
     keymap_body = extract_block(text, r"keymap\s*\{")
     if keymap_body is not None:
         layer_sources = [
-            (name, parse_bindings(body)) for name, body in split_child_nodes(keymap_body)
+            {
+                "name": name,
+                # ZMK's optional human-readable layer name. Nothing sets it today,
+                # but if it ever does the app should prefer it over its own
+                # hard-coded role table -- which has already gone stale once.
+                "display_name": parse_string(body, "display-name"),
+                "bindings": parse_bindings(body),
+            }
+            for name, body in split_child_nodes(keymap_body)
         ]
 
     combos: list[dict] = []
@@ -242,14 +255,18 @@ def main() -> int:
 
     layers = []
     for index, (key, entries) in enumerate(parsed.get("layers", {}).items()):
-        name, bindings = (
-            layer_sources[index] if index < len(layer_sources) else (f"layer_{index}", [])
+        source = (
+            layer_sources[index]
+            if index < len(layer_sources)
+            else {"name": f"layer_{index}", "display_name": None, "bindings": []}
         )
+        bindings = source["bindings"]
         layers.append(
             {
                 "index": index,
                 "id": key,
-                "name": name,
+                "name": source["name"],
+                "display_name": source["display_name"],
                 "keys": [
                     normalise_key(entry, bindings[position] if position < len(bindings) else None)
                     for position, entry in enumerate(entries)
