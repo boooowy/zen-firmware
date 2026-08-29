@@ -46,6 +46,138 @@ LEFT_HALF_MAX_X = 6
 LAYER_BEHAVIOURS = {"mo", "lt", "to", "tog", "sl"}
 
 
+# HID keyboard usage page, and the ZMK key names that map onto it.
+#
+# Needed because a combo can only be recognised on the host by the keycode it
+# emits: ZMK consumes the key presses that triggered it, so the presses never
+# reach a telemetry listener at all. Matching that keycode back to a combo needs
+# the combo's output expressed the way the wire format expresses it.
+HID_USAGE_PAGE_KEYBOARD = 0x07
+
+# Modifier bits as HID reports them, in the order ZMK's wrapper functions apply.
+MODIFIER_BITS = {
+    "LC": 0x01, "LS": 0x02, "LA": 0x04, "LG": 0x08,
+    "RC": 0x10, "RS": 0x20, "RA": 0x40, "RG": 0x80,
+}
+
+def _keyboard_usages() -> dict[str, int]:
+    usages: dict[str, int] = {}
+
+    for index, letter in enumerate("ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
+        usages[letter] = 0x04 + index
+
+    digits = ["N1", "N2", "N3", "N4", "N5", "N6", "N7", "N8", "N9", "N0"]
+    words = ["NUMBER_1", "NUMBER_2", "NUMBER_3", "NUMBER_4", "NUMBER_5",
+             "NUMBER_6", "NUMBER_7", "NUMBER_8", "NUMBER_9", "NUMBER_0"]
+    for index, (short, long) in enumerate(zip(digits, words)):
+        usages[short] = usages[long] = 0x1E + index
+
+    for index in range(1, 13):
+        usages[f"F{index}"] = 0x39 + index
+
+    usages.update({
+        "ENTER": 0x28, "RET": 0x28, "RETURN": 0x28,
+        "ESC": 0x29, "ESCAPE": 0x29,
+        "BSPC": 0x2A, "BACKSPACE": 0x2A,
+        "TAB": 0x2B,
+        "SPACE": 0x2C, "SPC": 0x2C,
+        "MINUS": 0x2D, "UNDER": 0x2D, "UNDERSCORE": 0x2D,
+        "EQUAL": 0x2E, "PLUS": 0x2E,
+        "LBKT": 0x2F, "LEFT_BRACKET": 0x2F, "LBRC": 0x2F, "LEFT_BRACE": 0x2F,
+        "RBKT": 0x30, "RIGHT_BRACKET": 0x30, "RBRC": 0x30, "RIGHT_BRACE": 0x30,
+        "BSLH": 0x31, "BACKSLASH": 0x31, "PIPE": 0x31,
+        "NON_US_HASH": 0x32, "NON_US_BACKSLASH": 0x64,
+        "SEMI": 0x33, "SEMICOLON": 0x33, "COLON": 0x33,
+        "APOS": 0x34, "SINGLE_QUOTE": 0x34, "SQT": 0x34, "DQT": 0x34, "DOUBLE_QUOTES": 0x34,
+        "GRAVE": 0x35, "TILDE": 0x35,
+        "COMMA": 0x36, "LT": 0x36, "LESS_THAN": 0x36,
+        "DOT": 0x37, "PERIOD": 0x37, "GT": 0x37, "GREATER_THAN": 0x37,
+        "FSLH": 0x38, "SLASH": 0x38, "QMARK": 0x38, "QUESTION": 0x38,
+        "CAPS": 0x39, "CAPSLOCK": 0x39,
+        "INS": 0x49, "INSERT": 0x49,
+        "HOME": 0x4A, "PG_UP": 0x4B, "PAGE_UP": 0x4B,
+        "DEL": 0x4C, "DELETE": 0x4C,
+        "END": 0x4D, "PG_DN": 0x4E, "PAGE_DOWN": 0x4E,
+        "RIGHT": 0x4F, "RIGHT_ARROW": 0x4F,
+        "LEFT": 0x50, "LEFT_ARROW": 0x50,
+        "DOWN": 0x51, "DOWN_ARROW": 0x51,
+        "UP": 0x52, "UP_ARROW": 0x52,
+        "LCTRL": 0xE0, "LEFT_CONTROL": 0xE0,
+        "LSHFT": 0xE1, "LEFT_SHIFT": 0xE1,
+        "LALT": 0xE2, "LEFT_ALT": 0xE2,
+        "LGUI": 0xE3, "LEFT_GUI": 0xE3, "LEFT_COMMAND": 0xE3, "LCMD": 0xE3,
+        "RCTRL": 0xE4, "RIGHT_CONTROL": 0xE4,
+        "RSHFT": 0xE5, "RIGHT_SHIFT": 0xE5,
+        "RALT": 0xE6, "RIGHT_ALT": 0xE6,
+        "RGUI": 0xE7, "RIGHT_GUI": 0xE7, "RIGHT_COMMAND": 0xE7, "RCMD": 0xE7,
+    })
+
+    # Shifted symbols ZMK spells as their own names.
+    for name, (base, _) in {
+        "EXCLAMATION": ("N1", 0), "EXCL": ("N1", 0),
+        "AT_SIGN": ("N2", 0), "AT": ("N2", 0),
+        "HASH": ("N3", 0), "POUND": ("N3", 0),
+        "DOLLAR": ("N4", 0), "DLLR": ("N4", 0),
+        "PERCENT": ("N5", 0), "PRCNT": ("N5", 0),
+        "CARET": ("N6", 0),
+        "AMPERSAND": ("N7", 0), "AMPS": ("N7", 0),
+        "ASTERISK": ("N8", 0), "ASTRK": ("N8", 0), "STAR": ("N8", 0),
+        "LEFT_PARENTHESIS": ("N9", 0), "LPAR": ("N9", 0),
+        "RIGHT_PARENTHESIS": ("N0", 0), "RPAR": ("N0", 0),
+    }.items():
+        usages[name] = usages[base]
+
+    return usages
+
+KEYBOARD_USAGES = _keyboard_usages()
+
+# Names ZMK defines as an implicitly shifted key. The HID report carries the
+# unshifted usage plus a shift modifier, which is what arrives over telemetry.
+IMPLICITLY_SHIFTED = {
+    "EXCLAMATION", "EXCL", "AT_SIGN", "AT", "HASH", "POUND", "DOLLAR", "DLLR",
+    "PERCENT", "PRCNT", "CARET", "AMPERSAND", "AMPS", "ASTERISK", "ASTRK",
+    "STAR", "LEFT_PARENTHESIS", "LPAR", "RIGHT_PARENTHESIS", "RPAR",
+    "UNDER", "UNDERSCORE", "PLUS", "PIPE", "TILDE", "COLON", "DQT",
+    "DOUBLE_QUOTES", "LBRC", "LEFT_BRACE", "RBRC", "RIGHT_BRACE",
+    "QMARK", "QUESTION", "LT", "LESS_THAN", "GT", "GREATER_THAN",
+}
+
+
+def resolve_output(binding: str) -> dict | None:
+    """The HID usage a binding emits, or None when it emits no keycode.
+
+    Only &kp is resolved. &bt, &mo and the rest emit nothing a host can see,
+    which is why a combo bound to one of them cannot be reported at all.
+    """
+    parts = binding.lstrip("&").split()
+    if len(parts) != 2 or parts[0] != "kp":
+        return None
+
+    key = parts[1]
+    modifiers = 0
+
+    # Unwrap LC(...) / LS(LA(...)) and friends, accumulating the modifiers.
+    while True:
+        match = re.fullmatch(r"([LR][CSAG])\((.+)\)", key)
+        if match is None:
+            break
+        modifiers |= MODIFIER_BITS[match.group(1)]
+        key = match.group(2)
+
+    usage = KEYBOARD_USAGES.get(key)
+    if usage is None:
+        return None
+
+    if key in IMPLICITLY_SHIFTED:
+        modifiers |= MODIFIER_BITS["LS"]
+
+    return {
+        "usage_page": HID_USAGE_PAGE_KEYBOARD,
+        "keycode": usage,
+        "implicit_mods": modifiers,
+    }
+
+
 def run_keymap_drawer(keymap_path: Path) -> dict:
     """Parse the keymap into keymap-drawer's intermediate representation."""
     exe = shutil.which("keymap")
@@ -177,9 +309,17 @@ def parse_keymap_source(keymap_path: Path) -> tuple[list[dict], list[dict]]:
             positions = parse_int_list(body, "key-positions")
             if positions is None:
                 continue
+            binding_match = re.search(r"\bbindings\s*=\s*<([^>]*)>", body)
+            binding = (
+                "&" + re.sub(r"\s+", " ", binding_match.group(1).strip().lstrip("&"))
+                if binding_match
+                else None
+            )
             combos.append(
                 {
                     "name": name,
+                    "binding": binding,
+                    "output": resolve_output(binding) if binding else None,
                     "positions": positions,
                     "layers": parse_int_list(body, "layers"),
                     "timeout_ms": parse_int(body, "timeout-ms") or COMBO_DEFAULT_TIMEOUT_MS,

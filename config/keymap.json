@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "db91efa4dcb60aeb58a130f3eddb8675114b476d",
+  "source_commit": "259f431bc433c85c672b713ebc02f32e144bfdeb",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -3999,6 +3999,8 @@
   "combos": [
     {
       "name": "bt_clear",
+      "binding": "&bt BT_CLR",
+      "output": null,
       "positions": [
         28,
         29
@@ -4012,6 +4014,12 @@
     },
     {
       "name": "switch-ime",
+      "binding": "&kp LC(SPACE)",
+      "output": {
+        "usage_page": 7,
+        "keycode": 44,
+        "implicit_mods": 1
+      },
       "positions": [
         15,
         16
@@ -4028,6 +4036,12 @@
     },
     {
       "name": "haifun",
+      "binding": "&kp MINUS",
+      "output": {
+        "usage_page": 7,
+        "keycode": 45,
+        "implicit_mods": 0
+      },
       "positions": [
         20,
         21
@@ -4044,6 +4058,12 @@
     },
     {
       "name": "backspace",
+      "binding": "&kp BACKSPACE",
+      "output": {
+        "usage_page": 7,
+        "keycode": 42,
+        "implicit_mods": 0
+      },
       "positions": [
         19,
         20
