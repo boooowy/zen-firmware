@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "d0a4e4b37d5ac6a2e6b1b1897b84336277aec302",
+  "source_commit": "d427b384ec17a823d712102ac5d610ab08b5a452",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -854,10 +854,10 @@
           "action": "kp"
         },
         {
-          "tap": "Alt+Gui+LEFT ARROW",
+          "tap": "Alt+Gui+RIGHT ARROW",
           "hold": null,
           "type": null,
-          "binding": "&kp LA(LG(LEFT_ARROW))",
+          "binding": "&kp LA(LG(RIGHT_ARROW))",
           "action": "kp"
         },
         {
