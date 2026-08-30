@@ -25,6 +25,20 @@
     /* トラックボールを一定量動かしたときだけマウスレイヤー(1)に入る
        (ZMK標準の zip_temp_layer は最初の1イベントで即レイヤーONになるため自作)
 
+       *** この自動切り替えは現在、意図的に無効化してある ***
+       閾値をどう詰めても誤検知が残ったため、マウスレイヤーへの入口は明示操作に一本化した:
+           - config/keymap.keymap のコンボ switch-mouse-layer1 (position 43+44 同時押し)
+           - position 38 の &mo 1
+       プロセッサは消さずに、発動条件3つを uint16_t の上限に張って到達不能にしている:
+           activation-delay-ms              0  -> 65535
+           activation-distance              8  -> 65535
+           activation-distance-after-typing 96 -> 65535
+       movement-gap-ms=150 で 150ms 途切れるとバーストがリセットされるので、
+       「1バースト内で 65535 カウント(cpi=800 で約2m)転がす」も
+       「65.5秒間 150ms も止めずに動かし続ける」も現実には起こらない。
+       自動切り替えを復活させたいときは、この3つを矢印の左の値に戻すだけでよい。
+
+       以下は無効化前の設計方針。復帰させたときの読み方として残しておく。
        設計方針: 「入口はゆるく、出口を作る」
          - 入口(誤爆防止)は require-prior-idle-ms が主担当。距離は補助に留める
          - 出口は excluded-positions に載っていないキーの打鍵で即解除
@@ -32,24 +46,30 @@
     /omit-if-no-ref/ zip_delay_temp_layer: zip_delay_temp_layer {
         compatible = "zmk,input-processor-delay-temp-layer";
         #input-processor-cells = <2>;
-        activation-delay-ms = <0>;
+        activation-delay-ms = <65535>;  /* 無効化中。元は <0> */
         /* 断続的にゆっくり転がしても距離カウンタがリセットされないよう長めに取る */
         movement-gap-ms = <150>;
 
-        /* 最後の打鍵からの経過時間で必要な移動量を三段階に切り替える (cpi=800)
+        /* 本来は最後の打鍵からの経過時間で必要な移動量を三段階に切り替える (cpi=800)
              0-400ms    : 距離に関係なく入らない          (require-prior-idle-ms)
              400-1500ms : 96カウント ≒ 3.0mm  が必要      (activation-distance-after-typing)
              1500ms-    :  8カウント ≒ 0.25mm で入る      (activation-distance)
            打鍵中の微振動は 3mm に届かず、打鍵していないときは触れば入る。
-           入りやすくても実害がないのは excluded-positions が打鍵で即解除するため */
+           入りやすくても実害がないのは excluded-positions が打鍵で即解除するため。
+           無効化中は距離2つを上限に張ってあるので、どの段階にも入らない */
         require-prior-idle-ms = <400>;
-        activation-distance = <8>;
-        activation-distance-after-typing = <96>;
+        activation-distance = <65535>;               /* 無効化中。元は <8> */
+        activation-distance-after-typing = <65535>;  /* 無効化中。元は <96> */
         typing-window-ms = <1500>;
 
         /* ここに列挙した位置「以外」を押すとマウスレイヤーが即解除される。
            = マウス操作中に押したいキーのホワイトリスト。
-           レイヤー1の割り当てを変えたら必ずここも更新すること */
+           レイヤー1の割り当てを変えたら必ずここも更新すること。
+           自動切り替えを無効化している間、このリストは休眠状態にある。解除処理は
+           「このプロセッサ自身がレイヤーを上げたか」(is_active) でガードされていて
+           一度も発動しないため走らない。復帰させれば再び効くので消さないこと。
+           復帰させるときは、コンボ switch-mouse-layer1 の 43 44 もこのリストに
+           追加すること (38 と同じ理由) */
         excluded-positions = <
             3  4                 /* E R  -> Gui+Shift+[ ] タブ切替 */
             7  8  9              /* U I O -> LCLK / mo 4 / RCLK */
