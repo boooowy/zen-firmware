@@ -28,4 +28,8 @@ include:
     snippet: "studio-rpc-usb-uart input-trackpad-mini input-split-left-trackpad-mini"
     artifact-name: zen_left_trackpad_peripheral
   - board: bmp_boost
+    shield: zen_right
+    snippet: "studio-rpc-usb-uart split-central input-trackball-pmw3610 input-listener input-split-listener-left-all zen-telemetry"
+    artifact-name: zen_right_trackball_pmw3610_central_telemetry
+  - board: bmp_boost
     shield: settings_reset

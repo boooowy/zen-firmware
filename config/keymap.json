@@ -1,0 +1,4082 @@
+{
+  "schema": 1,
+  "source_commit": "804a51684c72eded68972a8373633fc115396c4e",
+  "keyboard": "ZEN",
+  "geometry": [
+    {
+      "position": 0,
+      "row": 0,
+      "col": 0,
+      "x": 0,
+      "y": 0,
+      "side": "left"
+    },
+    {
+      "position": 1,
+      "row": 0,
+      "col": 1,
+      "x": 1,
+      "y": 0,
+      "side": "left"
+    },
+    {
+      "position": 2,
+      "row": 0,
+      "col": 2,
+      "x": 2,
+      "y": 0,
+      "side": "left"
+    },
+    {
+      "position": 3,
+      "row": 0,
+      "col": 3,
+      "x": 3,
+      "y": 0,
+      "side": "left"
+    },
+    {
+      "position": 4,
+      "row": 0,
+      "col": 4,
+      "x": 4,
+      "y": 0,
+      "side": "left"
+    },
+    {
+      "position": 5,
+      "row": 0,
+      "col": 5,
+      "x": 5,
+      "y": 0,
+      "side": "left"
+    },
+    {
+      "position": 6,
+      "row": 0,
+      "col": 6,
+      "x": 9,
+      "y": 0,
+      "side": "right"
+    },
+    {
+      "position": 7,
+      "row": 0,
+      "col": 7,
+      "x": 10,
+      "y": 0,
+      "side": "right"
+    },
+    {
+      "position": 8,
+      "row": 0,
+      "col": 8,
+      "x": 11,
+      "y": 0,
+      "side": "right"
+    },
+    {
+      "position": 9,
+      "row": 0,
+      "col": 9,
+      "x": 12,
+      "y": 0,
+      "side": "right"
+    },
+    {
+      "position": 10,
+      "row": 0,
+      "col": 10,
+      "x": 13,
+      "y": 0,
+      "side": "right"
+    },
+    {
+      "position": 11,
+      "row": 0,
+      "col": 11,
+      "x": 14,
+      "y": 0,
+      "side": "right"
+    },
+    {
+      "position": 12,
+      "row": 1,
+      "col": 0,
+      "x": 0,
+      "y": 1,
+      "side": "left"
+    },
+    {
+      "position": 13,
+      "row": 1,
+      "col": 1,
+      "x": 1,
+      "y": 1,
+      "side": "left"
+    },
+    {
+      "position": 14,
+      "row": 1,
+      "col": 2,
+      "x": 2,
+      "y": 1,
+      "side": "left"
+    },
+    {
+      "position": 15,
+      "row": 1,
+      "col": 3,
+      "x": 3,
+      "y": 1,
+      "side": "left"
+    },
+    {
+      "position": 16,
+      "row": 1,
+      "col": 4,
+      "x": 4,
+      "y": 1,
+      "side": "left"
+    },
+    {
+      "position": 17,
+      "row": 1,
+      "col": 5,
+      "x": 5,
+      "y": 1,
+      "side": "left"
+    },
+    {
+      "position": 18,
+      "row": 1,
+      "col": 6,
+      "x": 9,
+      "y": 1,
+      "side": "right"
+    },
+    {
+      "position": 19,
+      "row": 1,
+      "col": 7,
+      "x": 10,
+      "y": 1,
+      "side": "right"
+    },
+    {
+      "position": 20,
+      "row": 1,
+      "col": 8,
+      "x": 11,
+      "y": 1,
+      "side": "right"
+    },
+    {
+      "position": 21,
+      "row": 1,
+      "col": 9,
+      "x": 12,
+      "y": 1,
+      "side": "right"
+    },
+    {
+      "position": 22,
+      "row": 1,
+      "col": 10,
+      "x": 13,
+      "y": 1,
+      "side": "right"
+    },
+    {
+      "position": 23,
+      "row": 1,
+      "col": 11,
+      "x": 14,
+      "y": 1,
+      "side": "right"
+    },
+    {
+      "position": 24,
+      "row": 2,
+      "col": 0,
+      "x": 0,
+      "y": 2,
+      "side": "left"
+    },
+    {
+      "position": 25,
+      "row": 2,
+      "col": 1,
+      "x": 1,
+      "y": 2,
+      "side": "left"
+    },
+    {
+      "position": 26,
+      "row": 2,
+      "col": 2,
+      "x": 2,
+      "y": 2,
+      "side": "left"
+    },
+    {
+      "position": 27,
+      "row": 2,
+      "col": 3,
+      "x": 3,
+      "y": 2,
+      "side": "left"
+    },
+    {
+      "position": 28,
+      "row": 2,
+      "col": 4,
+      "x": 4,
+      "y": 2,
+      "side": "left"
+    },
+    {
+      "position": 29,
+      "row": 2,
+      "col": 5,
+      "x": 5,
+      "y": 2,
+      "side": "left"
+    },
+    {
+      "position": 30,
+      "row": 2,
+      "col": 6,
+      "x": 6,
+      "y": 2,
+      "side": "left"
+    },
+    {
+      "position": 31,
+      "row": 2,
+      "col": 7,
+      "x": 8,
+      "y": 2,
+      "side": "right"
+    },
+    {
+      "position": 32,
+      "row": 2,
+      "col": 8,
+      "x": 9,
+      "y": 2,
+      "side": "right"
+    },
+    {
+      "position": 33,
+      "row": 2,
+      "col": 9,
+      "x": 10,
+      "y": 2,
+      "side": "right"
+    },
+    {
+      "position": 34,
+      "row": 2,
+      "col": 10,
+      "x": 11,
+      "y": 2,
+      "side": "right"
+    },
+    {
+      "position": 35,
+      "row": 2,
+      "col": 11,
+      "x": 12,
+      "y": 2,
+      "side": "right"
+    },
+    {
+      "position": 36,
+      "row": 2,
+      "col": 12,
+      "x": 13,
+      "y": 2,
+      "side": "right"
+    },
+    {
+      "position": 37,
+      "row": 2,
+      "col": 13,
+      "x": 14,
+      "y": 2,
+      "side": "right"
+    },
+    {
+      "position": 38,
+      "row": 3,
+      "col": 0,
+      "x": 0,
+      "y": 3,
+      "side": "left"
+    },
+    {
+      "position": 39,
+      "row": 3,
+      "col": 1,
+      "x": 1,
+      "y": 3,
+      "side": "left"
+    },
+    {
+      "position": 40,
+      "row": 3,
+      "col": 2,
+      "x": 2,
+      "y": 3,
+      "side": "left"
+    },
+    {
+      "position": 41,
+      "row": 3,
+      "col": 3,
+      "x": 3,
+      "y": 3,
+      "side": "left"
+    },
+    {
+      "position": 42,
+      "row": 3,
+      "col": 4,
+      "x": 4,
+      "y": 3,
+      "side": "left"
+    },
+    {
+      "position": 43,
+      "row": 3,
+      "col": 5,
+      "x": 5,
+      "y": 3,
+      "side": "left"
+    },
+    {
+      "position": 44,
+      "row": 3,
+      "col": 6,
+      "x": 6,
+      "y": 3,
+      "side": "left"
+    },
+    {
+      "position": 45,
+      "row": 3,
+      "col": 7,
+      "x": 8,
+      "y": 3,
+      "side": "right"
+    },
+    {
+      "position": 46,
+      "row": 3,
+      "col": 8,
+      "x": 11,
+      "y": 3,
+      "side": "right"
+    },
+    {
+      "position": 47,
+      "row": 3,
+      "col": 9,
+      "x": 12,
+      "y": 3,
+      "side": "right"
+    },
+    {
+      "position": 48,
+      "row": 3,
+      "col": 10,
+      "x": 13,
+      "y": 3,
+      "side": "right"
+    },
+    {
+      "position": 49,
+      "row": 3,
+      "col": 11,
+      "x": 14,
+      "y": 3,
+      "side": "right"
+    }
+  ],
+  "layers": [
+    {
+      "index": 0,
+      "id": "0",
+      "name": "layer_0",
+      "display_name": null,
+      "keys": [
+        {
+          "tap": "TAB",
+          "hold": null,
+          "type": null,
+          "binding": "&kp TAB",
+          "action": "kp"
+        },
+        {
+          "tap": "Q",
+          "hold": null,
+          "type": null,
+          "binding": "&kp Q",
+          "action": "kp"
+        },
+        {
+          "tap": "W",
+          "hold": null,
+          "type": null,
+          "binding": "&kp W",
+          "action": "kp"
+        },
+        {
+          "tap": "E",
+          "hold": null,
+          "type": null,
+          "binding": "&kp E",
+          "action": "kp"
+        },
+        {
+          "tap": "R",
+          "hold": null,
+          "type": null,
+          "binding": "&kp R",
+          "action": "kp"
+        },
+        {
+          "tap": "T",
+          "hold": null,
+          "type": null,
+          "binding": "&kp T",
+          "action": "kp"
+        },
+        {
+          "tap": "Y",
+          "hold": null,
+          "type": null,
+          "binding": "&kp Y",
+          "action": "kp"
+        },
+        {
+          "tap": "U",
+          "hold": null,
+          "type": null,
+          "binding": "&kp U",
+          "action": "kp"
+        },
+        {
+          "tap": "I",
+          "hold": null,
+          "type": null,
+          "binding": "&kp I",
+          "action": "kp"
+        },
+        {
+          "tap": "O",
+          "hold": null,
+          "type": null,
+          "binding": "&kp O",
+          "action": "kp"
+        },
+        {
+          "tap": "P",
+          "hold": null,
+          "type": null,
+          "binding": "&kp P",
+          "action": "kp"
+        },
+        {
+          "tap": "BSPC",
+          "hold": null,
+          "type": null,
+          "binding": "&kp BSPC",
+          "action": "kp"
+        },
+        {
+          "tap": "LCTRL",
+          "hold": null,
+          "type": null,
+          "binding": "&kp LCTRL",
+          "action": "kp"
+        },
+        {
+          "tap": "A",
+          "hold": null,
+          "type": null,
+          "binding": "&kp A",
+          "action": "kp"
+        },
+        {
+          "tap": "S",
+          "hold": null,
+          "type": null,
+          "binding": "&kp S",
+          "action": "kp"
+        },
+        {
+          "tap": "D",
+          "hold": null,
+          "type": null,
+          "binding": "&kp D",
+          "action": "kp"
+        },
+        {
+          "tap": "F",
+          "hold": null,
+          "type": null,
+          "binding": "&kp F",
+          "action": "kp"
+        },
+        {
+          "tap": "G",
+          "hold": null,
+          "type": null,
+          "binding": "&kp G",
+          "action": "kp"
+        },
+        {
+          "tap": "H",
+          "hold": null,
+          "type": null,
+          "binding": "&kp H",
+          "action": "kp"
+        },
+        {
+          "tap": "J",
+          "hold": null,
+          "type": null,
+          "binding": "&kp J",
+          "action": "kp"
+        },
+        {
+          "tap": "K",
+          "hold": null,
+          "type": null,
+          "binding": "&kp K",
+          "action": "kp"
+        },
+        {
+          "tap": "L",
+          "hold": null,
+          "type": null,
+          "binding": "&kp L",
+          "action": "kp"
+        },
+        {
+          "tap": ";",
+          "hold": null,
+          "type": null,
+          "binding": "&kp SEMICOLON",
+          "action": "kp"
+        },
+        {
+          "tap": "ENTER",
+          "hold": null,
+          "type": null,
+          "binding": "&kp ENTER",
+          "action": "kp"
+        },
+        {
+          "tap": "LSHFT",
+          "hold": null,
+          "type": null,
+          "binding": "&kp LSHFT",
+          "action": "kp"
+        },
+        {
+          "tap": "Z",
+          "hold": null,
+          "type": null,
+          "binding": "&kp Z",
+          "action": "kp"
+        },
+        {
+          "tap": "X",
+          "hold": null,
+          "type": null,
+          "binding": "&kp X",
+          "action": "kp"
+        },
+        {
+          "tap": "C",
+          "hold": null,
+          "type": null,
+          "binding": "&kp C",
+          "action": "kp"
+        },
+        {
+          "tap": "V",
+          "hold": null,
+          "type": null,
+          "binding": "&kp V",
+          "action": "kp"
+        },
+        {
+          "tap": "B",
+          "hold": null,
+          "type": null,
+          "binding": "&kp B",
+          "action": "kp"
+        },
+        {
+          "tap": "SPACE",
+          "hold": null,
+          "type": null,
+          "binding": "&kp SPACE",
+          "action": "kp"
+        },
+        {
+          "tap": "RIGHT COMMAND",
+          "hold": null,
+          "type": null,
+          "binding": "&kp RIGHT_COMMAND",
+          "action": "kp"
+        },
+        {
+          "tap": "N",
+          "hold": null,
+          "type": null,
+          "binding": "&kp N",
+          "action": "kp"
+        },
+        {
+          "tap": "M",
+          "hold": null,
+          "type": null,
+          "binding": "&kp M",
+          "action": "kp"
+        },
+        {
+          "tap": ",",
+          "hold": null,
+          "type": null,
+          "binding": "&kp COMMA",
+          "action": "kp"
+        },
+        {
+          "tap": ".",
+          "hold": null,
+          "type": null,
+          "binding": "&kp DOT",
+          "action": "kp"
+        },
+        {
+          "tap": "/",
+          "hold": null,
+          "type": null,
+          "binding": "&kp SLASH",
+          "action": "kp"
+        },
+        {
+          "tap": "'",
+          "hold": "RSHFT",
+          "type": null,
+          "binding": "&mt RSHFT SINGLE_QUOTE",
+          "action": "mt"
+        },
+        {
+          "tap": "1",
+          "hold": null,
+          "type": null,
+          "binding": "&mo 1",
+          "action": "mo",
+          "layer": 1
+        },
+        {
+          "tap": "7",
+          "hold": "toggle",
+          "type": null,
+          "binding": "&tog 7",
+          "action": "tog",
+          "layer": 7
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "LALT",
+          "hold": null,
+          "type": null,
+          "binding": "&kp LALT",
+          "action": "kp"
+        },
+        {
+          "tap": "LEFT COMMAND",
+          "hold": null,
+          "type": null,
+          "binding": "&kp LEFT_COMMAND",
+          "action": "kp"
+        },
+        {
+          "tap": "2",
+          "hold": null,
+          "type": null,
+          "binding": "&mo 2",
+          "action": "mo",
+          "layer": 2
+        },
+        {
+          "tap": "ESC",
+          "hold": "3",
+          "type": null,
+          "binding": "&lt 3 ESC",
+          "action": "lt",
+          "layer": 3
+        },
+        {
+          "tap": "SPACE",
+          "hold": "5",
+          "type": null,
+          "binding": "&lt 5 SPACE",
+          "action": "lt",
+          "layer": 5
+        },
+        {
+          "tap": "6",
+          "hold": null,
+          "type": null,
+          "binding": "&mo 6",
+          "action": "mo",
+          "layer": 6
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "\\",
+          "hold": null,
+          "type": null,
+          "binding": "&kp BACKSLASH",
+          "action": "kp"
+        },
+        {
+          "tap": "-",
+          "hold": null,
+          "type": null,
+          "binding": "&kp MINUS",
+          "action": "kp"
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "id": "1",
+      "name": "layer_1",
+      "display_name": null,
+      "keys": [
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "&mkp LCLK",
+          "hold": null,
+          "type": null,
+          "binding": "&mkp LCLK",
+          "action": "mkp"
+        },
+        {
+          "tap": "4",
+          "hold": null,
+          "type": null,
+          "binding": "&mo 4",
+          "action": "mo",
+          "layer": 4
+        },
+        {
+          "tap": "&mkp RCLK",
+          "hold": null,
+          "type": null,
+          "binding": "&mkp RCLK",
+          "action": "mkp"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "4",
+          "hold": null,
+          "type": null,
+          "binding": "&mo 4",
+          "action": "mo",
+          "layer": 4
+        },
+        {
+          "tap": "&mkp MB1",
+          "hold": null,
+          "type": null,
+          "binding": "&mkp MB1",
+          "action": "mkp"
+        },
+        {
+          "tap": "&mkp MB2",
+          "hold": null,
+          "type": null,
+          "binding": "&mkp MB2",
+          "action": "mkp"
+        },
+        {
+          "tap": "Gui+[",
+          "hold": null,
+          "type": null,
+          "binding": "&kp RG(LEFT_BRACKET)",
+          "action": "kp"
+        },
+        {
+          "tap": "&mkp MB1",
+          "hold": null,
+          "type": null,
+          "binding": "&mkp MB1",
+          "action": "mkp"
+        },
+        {
+          "tap": "&mkp MB3",
+          "hold": null,
+          "type": null,
+          "binding": "&mkp MB3",
+          "action": "mkp"
+        },
+        {
+          "tap": "&mkp MB2",
+          "hold": null,
+          "type": null,
+          "binding": "&mkp MB2",
+          "action": "mkp"
+        },
+        {
+          "tap": "Gui+]",
+          "hold": null,
+          "type": null,
+          "binding": "&kp RG(RIGHT_BRACKET)",
+          "action": "kp"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "",
+          "hold": null,
+          "type": "held",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "id": "2",
+      "name": "layer_2",
+      "display_name": null,
+      "keys": [
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "1",
+          "hold": null,
+          "type": null,
+          "binding": "&kp N1",
+          "action": "kp"
+        },
+        {
+          "tap": "2",
+          "hold": null,
+          "type": null,
+          "binding": "&kp N2",
+          "action": "kp"
+        },
+        {
+          "tap": "3",
+          "hold": null,
+          "type": null,
+          "binding": "&kp N3",
+          "action": "kp"
+        },
+        {
+          "tap": "4",
+          "hold": null,
+          "type": null,
+          "binding": "&kp N4",
+          "action": "kp"
+        },
+        {
+          "tap": "5",
+          "hold": null,
+          "type": null,
+          "binding": "&kp N5",
+          "action": "kp"
+        },
+        {
+          "tap": "6",
+          "hold": null,
+          "type": null,
+          "binding": "&kp N6",
+          "action": "kp"
+        },
+        {
+          "tap": "7",
+          "hold": null,
+          "type": null,
+          "binding": "&kp N7",
+          "action": "kp"
+        },
+        {
+          "tap": "8",
+          "hold": null,
+          "type": null,
+          "binding": "&kp N8",
+          "action": "kp"
+        },
+        {
+          "tap": "9",
+          "hold": null,
+          "type": null,
+          "binding": "&kp N9",
+          "action": "kp"
+        },
+        {
+          "tap": "0",
+          "hold": null,
+          "type": null,
+          "binding": "&kp N0",
+          "action": "kp"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "Alt+LEFT GUI",
+          "hold": null,
+          "type": null,
+          "binding": "&kp LA(LEFT_GUI)",
+          "action": "kp"
+        },
+        {
+          "tap": "Sft+Alt+LCMD",
+          "hold": null,
+          "type": null,
+          "binding": "&kp LS(LA(LCMD))",
+          "action": "kp"
+        },
+        {
+          "tap": "+",
+          "hold": null,
+          "type": null,
+          "binding": "&kp PLUS",
+          "action": "kp"
+        },
+        {
+          "tap": "(",
+          "hold": null,
+          "type": null,
+          "binding": "&kp LEFT_PARENTHESIS",
+          "action": "kp"
+        },
+        {
+          "tap": ")",
+          "hold": null,
+          "type": null,
+          "binding": "&kp RIGHT_PARENTHESIS",
+          "action": "kp"
+        },
+        {
+          "tap": "-",
+          "hold": null,
+          "type": null,
+          "binding": "&kp MINUS",
+          "action": "kp"
+        },
+        {
+          "tap": "LEFT",
+          "hold": null,
+          "type": null,
+          "binding": "&kp LEFT",
+          "action": "kp"
+        },
+        {
+          "tap": "DOWN",
+          "hold": null,
+          "type": null,
+          "binding": "&kp DOWN",
+          "action": "kp"
+        },
+        {
+          "tap": "UP ARROW",
+          "hold": null,
+          "type": null,
+          "binding": "&kp UP_ARROW",
+          "action": "kp"
+        },
+        {
+          "tap": "RIGHT",
+          "hold": null,
+          "type": null,
+          "binding": "&kp RIGHT",
+          "action": "kp"
+        },
+        {
+          "tap": "-",
+          "hold": null,
+          "type": null,
+          "binding": "&kp MINUS",
+          "action": "kp"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "Sft+LCMD",
+          "hold": null,
+          "type": null,
+          "binding": "&kp LS(LCMD)",
+          "action": "kp"
+        },
+        {
+          "tap": "LEFT SHIFT",
+          "hold": null,
+          "type": null,
+          "binding": "&kp LEFT_SHIFT",
+          "action": "kp"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "[",
+          "hold": null,
+          "type": null,
+          "binding": "&kp LEFT_BRACKET",
+          "action": "kp"
+        },
+        {
+          "tap": "]",
+          "hold": null,
+          "type": null,
+          "binding": "&kp RIGHT_BRACKET",
+          "action": "kp"
+        },
+        {
+          "tap": "=",
+          "hold": null,
+          "type": null,
+          "binding": "&kp EQUAL",
+          "action": "kp"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "`",
+          "hold": null,
+          "type": null,
+          "binding": "&kp GRAVE",
+          "action": "kp"
+        },
+        {
+          "tap": "~",
+          "hold": null,
+          "type": null,
+          "binding": "&kp TILDE",
+          "action": "kp"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "_",
+          "hold": null,
+          "type": null,
+          "binding": "&kp UNDER",
+          "action": "kp"
+        },
+        {
+          "tap": "\\",
+          "hold": null,
+          "type": null,
+          "binding": "&kp NON_US_BACKSLASH",
+          "action": "kp"
+        },
+        {
+          "tap": "Alt+Sft+LEFT SHIFT",
+          "hold": null,
+          "type": null,
+          "binding": "&kp LA(LS(LEFT_SHIFT))",
+          "action": "kp"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "",
+          "hold": null,
+          "type": "held",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "BACKSPACE",
+          "hold": null,
+          "type": null,
+          "binding": "&kp BACKSPACE",
+          "action": "kp"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "|",
+          "hold": null,
+          "type": null,
+          "binding": "&kp PIPE",
+          "action": "kp"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "id": "3",
+      "name": "layer_3",
+      "display_name": null,
+      "keys": [
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "!",
+          "hold": null,
+          "type": null,
+          "binding": "&kp EXCLAMATION",
+          "action": "kp"
+        },
+        {
+          "tap": "@",
+          "hold": null,
+          "type": null,
+          "binding": "&kp AT_SIGN",
+          "action": "kp"
+        },
+        {
+          "tap": "#",
+          "hold": null,
+          "type": null,
+          "binding": "&kp HASH",
+          "action": "kp"
+        },
+        {
+          "tap": "$",
+          "hold": null,
+          "type": null,
+          "binding": "&kp DOLLAR",
+          "action": "kp"
+        },
+        {
+          "tap": "%",
+          "hold": null,
+          "type": null,
+          "binding": "&kp PERCENT",
+          "action": "kp"
+        },
+        {
+          "tap": "^",
+          "hold": null,
+          "type": null,
+          "binding": "&kp CARET",
+          "action": "kp"
+        },
+        {
+          "tap": "&",
+          "hold": null,
+          "type": null,
+          "binding": "&kp AMPERSAND",
+          "action": "kp"
+        },
+        {
+          "tap": "*",
+          "hold": null,
+          "type": null,
+          "binding": "&kp ASTERISK",
+          "action": "kp"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "",
+          "hold": null,
+          "type": "held",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "id": "4",
+      "name": "layer_4",
+      "display_name": null,
+      "keys": [
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "",
+          "hold": null,
+          "type": "held",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "",
+          "hold": null,
+          "type": "held",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "id": "5",
+      "name": "layer_5",
+      "display_name": null,
+      "keys": [
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "1",
+          "hold": null,
+          "type": null,
+          "binding": "&kp NUMBER_1",
+          "action": "kp"
+        },
+        {
+          "tap": "2",
+          "hold": null,
+          "type": null,
+          "binding": "&kp NUMBER_2",
+          "action": "kp"
+        },
+        {
+          "tap": "3",
+          "hold": null,
+          "type": null,
+          "binding": "&kp NUMBER_3",
+          "action": "kp"
+        },
+        {
+          "tap": "4",
+          "hold": null,
+          "type": null,
+          "binding": "&kp NUMBER_4",
+          "action": "kp"
+        },
+        {
+          "tap": "5",
+          "hold": null,
+          "type": null,
+          "binding": "&kp N5",
+          "action": "kp"
+        },
+        {
+          "tap": "6",
+          "hold": null,
+          "type": null,
+          "binding": "&kp NUMBER_6",
+          "action": "kp"
+        },
+        {
+          "tap": "7",
+          "hold": null,
+          "type": null,
+          "binding": "&kp N7",
+          "action": "kp"
+        },
+        {
+          "tap": "8",
+          "hold": null,
+          "type": null,
+          "binding": "&kp N8",
+          "action": "kp"
+        },
+        {
+          "tap": "9",
+          "hold": null,
+          "type": null,
+          "binding": "&kp N9",
+          "action": "kp"
+        },
+        {
+          "tap": "0",
+          "hold": null,
+          "type": null,
+          "binding": "&kp N0",
+          "action": "kp"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "LCTRL",
+          "hold": null,
+          "type": null,
+          "binding": "&kp LCTRL",
+          "action": "kp"
+        },
+        {
+          "tap": "LEFT GUI",
+          "hold": null,
+          "type": null,
+          "binding": "&kp LEFT_GUI",
+          "action": "kp"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "4",
+          "hold": null,
+          "type": null,
+          "binding": "&mo 4",
+          "action": "mo",
+          "layer": 4
+        },
+        {
+          "tap": "&mkp MB1",
+          "hold": null,
+          "type": null,
+          "binding": "&mkp MB1",
+          "action": "mkp"
+        },
+        {
+          "tap": "&mkp MB2",
+          "hold": null,
+          "type": null,
+          "binding": "&mkp MB2",
+          "action": "mkp"
+        },
+        {
+          "tap": "LEFT ARROW",
+          "hold": null,
+          "type": null,
+          "binding": "&kp LEFT_ARROW",
+          "action": "kp"
+        },
+        {
+          "tap": "DOWN ARROW",
+          "hold": null,
+          "type": null,
+          "binding": "&kp DOWN_ARROW",
+          "action": "kp"
+        },
+        {
+          "tap": "UP ARROW",
+          "hold": null,
+          "type": null,
+          "binding": "&kp UP_ARROW",
+          "action": "kp"
+        },
+        {
+          "tap": "RIGHT ARROW",
+          "hold": null,
+          "type": null,
+          "binding": "&kp RIGHT_ARROW",
+          "action": "kp"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "LEFT SHIFT",
+          "hold": null,
+          "type": null,
+          "binding": "&kp LEFT_SHIFT",
+          "action": "kp"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "Sft+LEFT ALT",
+          "hold": null,
+          "type": null,
+          "binding": "&kp LS(LEFT_ALT)",
+          "action": "kp"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "",
+          "hold": null,
+          "type": "held",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "id": "6",
+      "name": "layer_6",
+      "display_name": null,
+      "keys": [
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "F1",
+          "hold": null,
+          "type": null,
+          "binding": "&kp F1",
+          "action": "kp"
+        },
+        {
+          "tap": "F2",
+          "hold": null,
+          "type": null,
+          "binding": "&kp F2",
+          "action": "kp"
+        },
+        {
+          "tap": "F3",
+          "hold": null,
+          "type": null,
+          "binding": "&kp F3",
+          "action": "kp"
+        },
+        {
+          "tap": "F4",
+          "hold": null,
+          "type": null,
+          "binding": "&kp F4",
+          "action": "kp"
+        },
+        {
+          "tap": "F5",
+          "hold": null,
+          "type": null,
+          "binding": "&kp F5",
+          "action": "kp"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "/",
+          "hold": null,
+          "type": null,
+          "binding": "&kp FSLH",
+          "action": "kp"
+        },
+        {
+          "tap": "*",
+          "hold": null,
+          "type": null,
+          "binding": "&kp ASTRK",
+          "action": "kp"
+        },
+        {
+          "tap": "KP 7",
+          "hold": null,
+          "type": null,
+          "binding": "&kp KP_NUMBER_7",
+          "action": "kp"
+        },
+        {
+          "tap": "KP 8",
+          "hold": null,
+          "type": null,
+          "binding": "&kp KP_NUMBER_8",
+          "action": "kp"
+        },
+        {
+          "tap": "KP 9",
+          "hold": null,
+          "type": null,
+          "binding": "&kp KP_NUMBER_9",
+          "action": "kp"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "F6",
+          "hold": null,
+          "type": null,
+          "binding": "&kp F6",
+          "action": "kp"
+        },
+        {
+          "tap": "F7",
+          "hold": null,
+          "type": null,
+          "binding": "&kp F7",
+          "action": "kp"
+        },
+        {
+          "tap": "F8",
+          "hold": null,
+          "type": null,
+          "binding": "&kp F8",
+          "action": "kp"
+        },
+        {
+          "tap": "F9",
+          "hold": null,
+          "type": null,
+          "binding": "&kp F9",
+          "action": "kp"
+        },
+        {
+          "tap": "F10",
+          "hold": null,
+          "type": null,
+          "binding": "&kp F10",
+          "action": "kp"
+        },
+        {
+          "tap": "HOME",
+          "hold": null,
+          "type": null,
+          "binding": "&kp HOME",
+          "action": "kp"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "-",
+          "hold": null,
+          "type": null,
+          "binding": "&kp MINUS",
+          "action": "kp"
+        },
+        {
+          "tap": "KP 4",
+          "hold": null,
+          "type": null,
+          "binding": "&kp KP_NUMBER_4",
+          "action": "kp"
+        },
+        {
+          "tap": "KP 5",
+          "hold": null,
+          "type": null,
+          "binding": "&kp KP_NUMBER_5",
+          "action": "kp"
+        },
+        {
+          "tap": "KP 6",
+          "hold": null,
+          "type": null,
+          "binding": "&kp KP_NUMBER_6",
+          "action": "kp"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "F11",
+          "hold": null,
+          "type": null,
+          "binding": "&kp F11",
+          "action": "kp"
+        },
+        {
+          "tap": "F12",
+          "hold": null,
+          "type": null,
+          "binding": "&kp F12",
+          "action": "kp"
+        },
+        {
+          "tap": "OUT USB",
+          "hold": null,
+          "type": null,
+          "binding": "&out OUT_USB",
+          "action": "out"
+        },
+        {
+          "tap": "OUT BLE",
+          "hold": null,
+          "type": null,
+          "binding": "&out OUT_BLE",
+          "action": "out"
+        },
+        {
+          "tap": "BT NXT",
+          "hold": null,
+          "type": null,
+          "binding": "&bt BT_NXT",
+          "action": "bt"
+        },
+        {
+          "tap": "BT CLR ALL",
+          "hold": null,
+          "type": null,
+          "binding": "&bt BT_CLR_ALL",
+          "action": "bt"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "END",
+          "hold": null,
+          "type": null,
+          "binding": "&kp END",
+          "action": "kp"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "`",
+          "hold": null,
+          "type": null,
+          "binding": "&kp GRAVE",
+          "action": "kp"
+        },
+        {
+          "tap": "KP 1",
+          "hold": null,
+          "type": null,
+          "binding": "&kp KP_NUMBER_1",
+          "action": "kp"
+        },
+        {
+          "tap": "KP 2",
+          "hold": null,
+          "type": null,
+          "binding": "&kp KP_NUMBER_2",
+          "action": "kp"
+        },
+        {
+          "tap": "KP 3",
+          "hold": null,
+          "type": null,
+          "binding": "&kp KP_NUMBER_3",
+          "action": "kp"
+        },
+        {
+          "tap": "BT",
+          "hold": "0",
+          "type": null,
+          "binding": "&bt BT_SEL 0",
+          "action": "bt"
+        },
+        {
+          "tap": "BT",
+          "hold": "1",
+          "type": null,
+          "binding": "&bt BT_SEL 1",
+          "action": "bt"
+        },
+        {
+          "tap": "BT",
+          "hold": "2",
+          "type": null,
+          "binding": "&bt BT_SEL 2",
+          "action": "bt"
+        },
+        {
+          "tap": "BT",
+          "hold": "3",
+          "type": null,
+          "binding": "&bt BT_SEL 3",
+          "action": "bt"
+        },
+        {
+          "tap": "BT",
+          "hold": "4",
+          "type": null,
+          "binding": "&bt BT_SEL 4",
+          "action": "bt"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "",
+          "hold": null,
+          "type": "held",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "KP 0",
+          "hold": null,
+          "type": null,
+          "binding": "&kp KP_NUMBER_0",
+          "action": "kp"
+        },
+        {
+          "tap": ".",
+          "hold": null,
+          "type": null,
+          "binding": "&kp DOT",
+          "action": "kp"
+        },
+        {
+          "tap": "=",
+          "hold": null,
+          "type": null,
+          "binding": "&kp EQUAL",
+          "action": "kp"
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "id": "7",
+      "name": "layer_7",
+      "display_name": null,
+      "keys": [
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "&speed_a_to_b",
+          "hold": null,
+          "type": null,
+          "binding": "&speed_a_to_b",
+          "action": "speed_a_to_b"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "id": "8",
+      "name": "layer_8",
+      "display_name": null,
+      "keys": [
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "&speed_b_to_c",
+          "hold": null,
+          "type": null,
+          "binding": "&speed_b_to_c",
+          "action": "speed_b_to_c"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "id": "9",
+      "name": "layer_9",
+      "display_name": null,
+      "keys": [
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "9",
+          "hold": "toggle",
+          "type": null,
+          "binding": "&tog 9",
+          "action": "tog",
+          "layer": 9
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        }
+      ]
+    }
+  ],
+  "combos": [
+    {
+      "name": "bt_clear",
+      "binding": "&bt BT_CLR",
+      "output": null,
+      "positions": [
+        28,
+        29
+      ],
+      "layers": [
+        2
+      ],
+      "timeout_ms": 50,
+      "require_prior_idle_ms": 0,
+      "key": "BT CLR"
+    },
+    {
+      "name": "switch-ime",
+      "binding": "&kp LC(SPACE)",
+      "output": {
+        "usage_page": 7,
+        "keycode": 44,
+        "implicit_mods": 1
+      },
+      "positions": [
+        15,
+        16
+      ],
+      "layers": [
+        0,
+        7,
+        8,
+        9
+      ],
+      "timeout_ms": 30,
+      "require_prior_idle_ms": 0,
+      "key": "Ctl+SPACE"
+    },
+    {
+      "name": "haifun",
+      "binding": "&kp MINUS",
+      "output": {
+        "usage_page": 7,
+        "keycode": 45,
+        "implicit_mods": 0
+      },
+      "positions": [
+        20,
+        21
+      ],
+      "layers": [
+        0,
+        7,
+        8,
+        9
+      ],
+      "timeout_ms": 30,
+      "require_prior_idle_ms": 0,
+      "key": "-"
+    },
+    {
+      "name": "backspace",
+      "binding": "&kp BACKSPACE",
+      "output": {
+        "usage_page": 7,
+        "keycode": 42,
+        "implicit_mods": 0
+      },
+      "positions": [
+        19,
+        20
+      ],
+      "layers": [
+        0,
+        7,
+        8,
+        9
+      ],
+      "timeout_ms": 30,
+      "require_prior_idle_ms": 0,
+      "key": "BACKSPACE"
+    }
+  ]
+}

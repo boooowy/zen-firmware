@@ -211,3 +211,53 @@ config ZMK_INPUT_PROCESSOR_DELAY_TEMP_LAYER_MAX_ACTION_EVENTS
     int "Delayed Temporary Layer Input Processor Max Action Events"
     default 4
     depends on ZMK_INPUT_PROCESSOR_DELAY_TEMP_LAYER
+
+menuconfig ZEN_TELEMETRY
+    bool "ZEN telemetry stream for companion apps"
+    default n
+    depends on !ZMK_SPLIT || ZMK_SPLIT_ROLE_CENTRAL
+    help
+      Publish live keyboard state (active layers, key positions, keycodes,
+      modifiers, battery, endpoint) so a companion app such as zen-hud can show
+      an on-screen overlay. Central only: the peripheral has no host to talk to.
+
+      The wire format is documented in docs/zen-telemetry-protocol.md.
+
+if ZEN_TELEMETRY
+
+config ZEN_TELEMETRY_BLE
+    bool "Carry ZEN telemetry over a custom BLE GATT service"
+    default y
+    depends on ZMK_BLE
+    help
+      Adds a notify-only GATT service alongside HID, so the companion app needs
+      no cable and no input monitoring permission.
+
+config ZEN_TELEMETRY_RING_SIZE
+    int "Telemetry ring buffer size (bytes)"
+    default 512
+    help
+      Buffers event records between the ZMK listeners and the sending work
+      queue. When it fills, the oldest records are dropped and a full state
+      snapshot is queued instead.
+
+config ZEN_TELEMETRY_STACK_SIZE
+    int "Telemetry work queue stack size (bytes)"
+    default 1024
+
+config ZEN_TELEMETRY_THREAD_PRIORITY
+    int "Telemetry work queue thread priority"
+    default 10
+    help
+      Must stay a low preemptible priority so telemetry never delays HID
+      reports, split reception, or the system work queue.
+
+config ZEN_TELEMETRY_RETRY_MS
+    int "Delay before retrying a failed telemetry send (ms)"
+    default 20
+
+module = ZEN_TELEMETRY
+module-str = ZEN_TELEMETRY
+source "${ZEPHYR_BASE}/subsys/logging/Kconfig.template.log_config"
+
+endif # ZEN_TELEMETRY
