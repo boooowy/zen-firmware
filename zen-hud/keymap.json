@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "1466fdde6b60a355beb75ef7c0bbe4871b5ec533",
+  "source_commit": "3eeda5347c37c28d52a20311a2131c0d7c1b2a88",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -1964,18 +1964,18 @@
           "action": "trans"
         },
         {
-          "tap": "&mkp MB1",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&mkp MB1",
-          "action": "mkp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
-          "tap": "&mkp MB2",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&mkp MB2",
-          "action": "mkp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
           "tap": "▽",
