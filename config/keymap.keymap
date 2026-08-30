@@ -49,6 +49,13 @@
             timeout-ms = <30>;
             layers = <0 7 8 9>;
         };
+
+        switch-mouse-layer1 {
+            bindings = <&mo 1>;
+            key-positions = <44 43>;
+            timeout-ms = <30>;
+            layers = <0 7 8 9 4 1>;
+        };
     };
 
     keymap {
