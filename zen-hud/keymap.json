@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "cd1d9ed6cd4c0748ff90cbf6fd8862b5d47e55f8",
+  "source_commit": "844f5a16e6465c6768286d4ecde82e36c0aee19d",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -4077,6 +4077,26 @@
       "timeout_ms": 30,
       "require_prior_idle_ms": 0,
       "key": "BACKSPACE"
+    },
+    {
+      "name": "switch-mouse-layer1",
+      "binding": "&mo 1",
+      "output": null,
+      "positions": [
+        44,
+        43
+      ],
+      "layers": [
+        0,
+        7,
+        8,
+        9,
+        4,
+        1
+      ],
+      "timeout_ms": 30,
+      "require_prior_idle_ms": 0,
+      "key": "1"
     }
   ]
 }
