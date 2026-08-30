@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "6800b2247b17eefa0f199307c4e09231124c2e4d",
+  "source_commit": "c719643c59227a88734c3f956f2bc210931cb90f",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -735,9 +735,8 @@
           "tap": "SPACE",
           "hold": "5",
           "type": null,
-          "binding": "&lt 5 SPACE",
-          "action": "lt",
-          "layer": 5
+          "binding": "&lt_rep 5 SPACE",
+          "action": "lt_rep"
         },
         {
           "tap": "6",
@@ -1455,9 +1454,8 @@
           "tap": "BACKSPACE",
           "hold": "3",
           "type": null,
-          "binding": "&lt 3 BACKSPACE",
-          "action": "lt",
-          "layer": 3
+          "binding": "&lt_rep 3 BACKSPACE",
+          "action": "lt_rep"
         },
         {
           "tap": "▽",
