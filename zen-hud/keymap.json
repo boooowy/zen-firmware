@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "e9676426682ea1d25983260b7e68437b8f5241fb",
+  "source_commit": "6800b2247b17eefa0f199307c4e09231124c2e4d",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -798,18 +798,18 @@
           "action": "trans"
         },
         {
-          "tap": "▽",
+          "tap": "Gui+Alt+LEFT ARROW",
           "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
+          "type": null,
+          "binding": "&kp LG(LA(LEFT_ARROW))",
+          "action": "kp"
         },
         {
-          "tap": "▽",
+          "tap": "Gui+Alt+RIGHT ARROW",
           "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
+          "type": null,
+          "binding": "&kp LG(LA(RIGHT_ARROW))",
+          "action": "kp"
         },
         {
           "tap": "▽",
@@ -848,18 +848,18 @@
           "action": "mkp"
         },
         {
-          "tap": "Alt+Gui+LEFT ARROW",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&kp LA(LG(LEFT_ARROW))",
-          "action": "kp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
-          "tap": "Alt+Gui+RIGHT ARROW",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&kp LA(LG(RIGHT_ARROW))",
-          "action": "kp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
           "tap": "▽",
