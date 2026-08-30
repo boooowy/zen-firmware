@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "844f5a16e6465c6768286d4ecde82e36c0aee19d",
+  "source_commit": "d0a4e4b37d5ac6a2e6b1b1897b84336277aec302",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -847,18 +847,18 @@
           "action": "mkp"
         },
         {
-          "tap": "▽",
+          "tap": "Alt+Gui+LEFT ARROW",
           "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
+          "type": null,
+          "binding": "&kp LA(LG(LEFT_ARROW))",
+          "action": "kp"
         },
         {
-          "tap": "▽",
+          "tap": "Alt+Gui+LEFT ARROW",
           "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
+          "type": null,
+          "binding": "&kp LA(LG(LEFT_ARROW))",
+          "action": "kp"
         },
         {
           "tap": "▽",
