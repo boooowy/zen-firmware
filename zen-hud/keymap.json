@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "d427b384ec17a823d712102ac5d610ab08b5a452",
+  "source_commit": "16671744ebb848ab4f85fcfc3c50d55f845baae7",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -1452,10 +1452,11 @@
         },
         {
           "tap": "BACKSPACE",
-          "hold": null,
+          "hold": "3",
           "type": null,
-          "binding": "&kp BACKSPACE",
-          "action": "kp"
+          "binding": "&lt 3 BACKSPACE",
+          "action": "lt",
+          "layer": 3
         },
         {
           "tap": "▽",
