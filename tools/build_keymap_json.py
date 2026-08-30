@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
-"""Generate config/keymap.json for companion apps (zen-hud).
+"""Generate zen-hud/keymap.json for companion apps (zen-hud).
 
 config/keymap.keymap is committed straight to main by the Keymap Editor bot, so
 a companion app cannot rely on a hand-maintained copy of the keymap. This script
 turns the keymap into a stable, versioned JSON document that an app can just
 load: key labels per layer, physical geometry, and the combo definitions with
 their timing.
+
+The output deliberately does NOT live in config/. That directory belongs to ZMK
+and to the Keymap Editor: the editor reads config/*.json as layout metadata and
+writes config/keymap.json itself on every save. A file of ours at that path made
+the editor refuse to open the repo ("info must define \"layouts\"").
 
 Key labels come from keymap-drawer, which already knows how to preprocess and
 parse ZMK devicetree. Everything keymap-drawer drops on the floor but a HUD
@@ -386,7 +391,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--keymap", type=Path, default=repo_root / "config/keymap.keymap")
     parser.add_argument("--info", type=Path, default=repo_root / "config/info.json")
-    parser.add_argument("--out", type=Path, default=repo_root / "config/keymap.json")
+    parser.add_argument("--out", type=Path, default=repo_root / "zen-hud/keymap.json")
     args = parser.parse_args()
 
     parsed = run_keymap_drawer(args.keymap)
@@ -441,6 +446,7 @@ def main() -> int:
         "combos": combos,
     }
 
+    args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(document, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(
         f"wrote {args.out.relative_to(repo_root)}: "
