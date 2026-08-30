@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "16671744ebb848ab4f85fcfc3c50d55f845baae7",
+  "source_commit": "2484f6f3c4df4b580cc8032f6264c7bce0e5e663",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -724,11 +724,11 @@
         },
         {
           "tap": "ESC",
-          "hold": "3",
+          "hold": "1",
           "type": null,
-          "binding": "&lt 3 ESC",
+          "binding": "&lt 1 ESC",
           "action": "lt",
-          "layer": 3
+          "layer": 1
         },
         {
           "tap": "SPACE",
@@ -1796,13 +1796,6 @@
           "action": "trans"
         },
         {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
-        },
-        {
           "tap": "",
           "hold": null,
           "type": "held",
@@ -1813,6 +1806,13 @@
           "tap": "▽",
           "hold": null,
           "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "",
+          "hold": null,
+          "type": "held",
           "binding": "&trans",
           "action": "trans"
         },
