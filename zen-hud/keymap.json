@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "98cb6710bf3a8a8ea938f84eed004851c6e7a55d",
+  "source_commit": "d6b8cc54b22197f3962069fc41dfa48d104eddb9",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -797,18 +797,18 @@
           "action": "trans"
         },
         {
-          "tap": "Gui+Alt+LEFT ARROW",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&kp LG(LA(LEFT_ARROW))",
-          "action": "kp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
-          "tap": "Gui+Alt+RIGHT ARROW",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&kp LG(LA(RIGHT_ARROW))",
-          "action": "kp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
           "tap": "▽",
@@ -882,26 +882,25 @@
           "action": "trans"
         },
         {
-          "tap": "4",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&mo 4",
-          "action": "mo",
-          "layer": 4
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
-          "tap": "&mkp MB1",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&mkp MB1",
-          "action": "mkp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
-          "tap": "&mkp MB2",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&mkp MB2",
-          "action": "mkp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
           "tap": "Gui+[",
@@ -1072,25 +1071,26 @@
           "action": "trans"
         },
         {
-          "tap": "▽",
+          "tap": "4",
           "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
+          "type": null,
+          "binding": "&mo 4",
+          "action": "mo",
+          "layer": 4
         },
         {
-          "tap": "▽",
+          "tap": "&mkp MB1",
           "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
+          "type": null,
+          "binding": "&mkp MB1",
+          "action": "mkp"
         },
         {
-          "tap": "▽",
+          "tap": "&mkp MB2",
           "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
+          "type": null,
+          "binding": "&mkp MB2",
+          "action": "mkp"
         },
         {
           "tap": "▽",
@@ -2315,26 +2315,25 @@
           "action": "trans"
         },
         {
-          "tap": "4",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&mo 4",
-          "action": "mo",
-          "layer": 4
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
-          "tap": "&mkp MB1",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&mkp MB1",
-          "action": "mkp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
-          "tap": "&mkp MB2",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&mkp MB2",
-          "action": "mkp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
           "tap": "LEFT ARROW",
