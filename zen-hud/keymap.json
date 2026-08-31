@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "50aaeddd711113dc2984cbb4e2d76b474f7641d2",
+  "source_commit": "6dc305e604c378639f335adb59ee2e881c4c75d0",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -861,6 +861,27 @@
           "action": "trans"
         },
         {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
           "tap": "4",
           "hold": null,
           "type": null,
@@ -869,39 +890,18 @@
           "layer": 4
         },
         {
-          "tap": "▽",
+          "tap": "&mkp MB1",
           "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
+          "type": null,
+          "binding": "&mkp MB1",
+          "action": "mkp"
         },
         {
-          "tap": "▽",
+          "tap": "&mkp MB2",
           "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
-        },
-        {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
-        },
-        {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
-        },
-        {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
+          "type": null,
+          "binding": "&mkp MB2",
+          "action": "mkp"
         },
         {
           "tap": "Gui+[",
@@ -1079,18 +1079,18 @@
           "action": "trans"
         },
         {
-          "tap": "&mkp MB1",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&mkp MB1",
-          "action": "mkp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
-          "tap": "&mkp MB2",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&mkp MB2",
-          "action": "mkp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
           "tap": "▽",
