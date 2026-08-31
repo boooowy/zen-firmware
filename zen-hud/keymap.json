@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "3eeda5347c37c28d52a20311a2131c0d7c1b2a88",
+  "source_commit": "00929f49b78bd9ed9d228ddef0b6e7f4ea009d61",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -725,11 +725,11 @@
         },
         {
           "tap": "ESC",
-          "hold": "1",
+          "hold": "5",
           "type": null,
-          "binding": "&lt 1 ESC",
+          "binding": "&lt 5 ESC",
           "action": "lt",
-          "layer": 1
+          "layer": 5
         },
         {
           "tap": "SPACE",
@@ -2519,16 +2519,16 @@
           "action": "trans"
         },
         {
-          "tap": "▽",
+          "tap": "",
           "hold": null,
-          "type": "trans",
+          "type": "held",
           "binding": "&trans",
           "action": "trans"
         },
         {
-          "tap": "",
+          "tap": "▽",
           "hold": null,
-          "type": "held",
+          "type": "trans",
           "binding": "&trans",
           "action": "trans"
         },
@@ -4077,26 +4077,6 @@
       "timeout_ms": 30,
       "require_prior_idle_ms": 0,
       "key": "BACKSPACE"
-    },
-    {
-      "name": "switch-mouse-layer1",
-      "binding": "&mo 1",
-      "output": null,
-      "positions": [
-        44,
-        43
-      ],
-      "layers": [
-        0,
-        7,
-        8,
-        9,
-        4,
-        1
-      ],
-      "timeout_ms": 30,
-      "require_prior_idle_ms": 0,
-      "key": "1"
     }
   ]
 }
