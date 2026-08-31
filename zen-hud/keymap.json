@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "00929f49b78bd9ed9d228ddef0b6e7f4ea009d61",
+  "source_commit": "98cb6710bf3a8a8ea938f84eed004851c6e7a55d",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -4077,6 +4077,29 @@
       "timeout_ms": 30,
       "require_prior_idle_ms": 0,
       "key": "BACKSPACE"
+    },
+    {
+      "name": "under-score",
+      "binding": "&kp UNDERSCORE",
+      "output": {
+        "usage_page": 7,
+        "keycode": 45,
+        "implicit_mods": 2
+      },
+      "positions": [
+        34,
+        35
+      ],
+      "layers": [
+        0,
+        7,
+        8,
+        9,
+        5
+      ],
+      "timeout_ms": 30,
+      "require_prior_idle_ms": 0,
+      "key": "_"
     }
   ]
 }
