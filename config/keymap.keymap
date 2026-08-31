@@ -60,6 +60,13 @@
             timeout-ms = <30>;
             layers = <0 7 8 9>;
         };
+
+        under-score {
+            bindings = <&kp UNDERSCORE>;
+            key-positions = <34 35>;
+            timeout-ms = <30>;
+            layers = <0 7 8 9 5>;
+        };
     };
 
     keymap {
