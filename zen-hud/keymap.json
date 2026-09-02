@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "6dc305e604c378639f335adb59ee2e881c4c75d0",
+  "source_commit": "32e66a2687a339484ed2b1dec04139ba11ab8513",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -776,11 +776,12 @@
       "display_name": null,
       "keys": [
         {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
+          "tap": "1",
+          "hold": "toggle",
+          "type": null,
+          "binding": "&tog 1",
+          "action": "tog",
+          "layer": 1
         },
         {
           "tap": "▽",
@@ -1086,11 +1087,12 @@
           "action": "trans"
         },
         {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
+          "tap": "1",
+          "hold": "toggle",
+          "type": null,
+          "binding": "&tog 1",
+          "action": "tog",
+          "layer": 1
         },
         {
           "tap": "▽",
