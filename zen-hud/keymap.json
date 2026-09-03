@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "e0f374d41848a9229b9fb987760f5d4e4bfc1358",
+  "source_commit": "e073acf340b4d8e24a1af9319732b5ab67eae6b2",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -4013,12 +4013,12 @@
       "key": "BT CLR"
     },
     {
-      "name": "switch-ime",
-      "binding": "&kp LC(SPACE)",
+      "name": "switch-jp-lang",
+      "binding": "&kp RIGHT_GUI",
       "output": {
         "usage_page": 7,
-        "keycode": 44,
-        "implicit_mods": 1
+        "keycode": 231,
+        "implicit_mods": 0
       },
       "positions": [
         15,
@@ -4032,7 +4032,7 @@
       ],
       "timeout_ms": 30,
       "require_prior_idle_ms": 0,
-      "key": "Ctl+SPACE"
+      "key": "RIGHT GUI"
     },
     {
       "name": "haifun",
