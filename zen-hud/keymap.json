@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "32e66a2687a339484ed2b1dec04139ba11ab8513",
+  "source_commit": "e0f374d41848a9229b9fb987760f5d4e4bfc1358",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -776,12 +776,11 @@
       "display_name": null,
       "keys": [
         {
-          "tap": "1",
-          "hold": "toggle",
+          "tap": "TAB",
+          "hold": null,
           "type": null,
-          "binding": "&tog 1",
-          "action": "tog",
-          "layer": 1
+          "binding": "&kp TAB",
+          "action": "kp"
         },
         {
           "tap": "▽",
