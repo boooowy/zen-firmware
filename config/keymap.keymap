@@ -39,8 +39,8 @@
             layers = <2>;
         };
 
-        switch-ime {
-            bindings = <&kp LC(SPACE)>;
+        switch-jp-lang {
+            bindings = <&kp RIGHT_GUI>;
             key-positions = <15 16>;
             require-prior-idle-ms = <0>;
             timeout-ms = <30>;
@@ -84,9 +84,9 @@
         layer_1 {
             bindings = <
 &kp TAB  &trans  &trans  &trans  &trans    &trans    &trans                &mkp LCLK  &mo 4     &mkp RCLK  &trans                 &trans
-&trans  &trans  &trans  &mo 4   &mkp MB1  &mkp MB2  &kp RG(LEFT_BRACKET)  &mkp MB1   &mkp MB3  &mkp MB2   &kp RG(RIGHT_BRACKET)  &trans
-&trans  &trans  &trans  &trans  &trans    &trans    &trans                &trans     &trans    &trans     &trans                 &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans    &tog 1                &trans     &trans    &trans     &trans                 &trans
+&trans   &trans  &trans  &mo 4   &mkp MB1  &mkp MB2  &kp RG(LEFT_BRACKET)  &mkp MB1   &mkp MB3  &mkp MB2   &kp RG(RIGHT_BRACKET)  &trans
+&trans   &trans  &trans  &trans  &trans    &trans    &trans                &trans     &trans    &trans     &trans                 &trans  &trans  &trans
+&trans   &trans  &trans  &trans  &trans    &trans    &tog 1                &trans     &trans    &trans     &trans                 &trans
             >;
         };
 
