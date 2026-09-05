@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "b222849d1ed50a8e34018bb9b2a71e3c07f97202",
+  "source_commit": "099167e3f87dad71989fdce659d71912fd4880b0",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -623,18 +623,18 @@
           "action": "kp"
         },
         {
-          "tap": "SPACE",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&kp SPACE",
-          "action": "kp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
-          "tap": "RIGHT COMMAND",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&kp RIGHT_COMMAND",
-          "action": "kp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
           "tap": "N",
