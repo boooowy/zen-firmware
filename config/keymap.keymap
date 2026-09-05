@@ -74,10 +74,10 @@
 
         layer_0 {
             bindings = <
-&kp TAB    &kp Q   &kp W   &kp E     &kp R             &kp T  &kp Y      &kp U              &kp I  &kp O   &kp P          &kp BSPC
-&kp LCTRL  &kp A   &kp S   &lt 4 D   &kp F             &kp G  &kp H      &kp J              &kp K  &kp L   &kp SEMICOLON  &kp ENTER
-&kp LSHFT  &kp Z   &kp X   &kp C     &kp V             &kp B  &kp SPACE  &kp RIGHT_COMMAND  &kp N  &kp M   &kp COMMA      &kp DOT    &kp SLASH  &mt RSHFT SINGLE_QUOTE
-&mo 1      &tog 7  &trans  &kp LALT  &kp LEFT_COMMAND  &mo 2  &lt 5 ESC  &lt_rep 5 SPACE    &mo 6  &trans  &kp BACKSLASH  &kp MINUS
+&kp TAB    &kp Q   &kp W   &kp E     &kp R             &kp T            &kp Y      &kp U              &kp I  &kp O   &kp P          &kp BSPC
+&kp LCTRL  &kp A   &kp S   &lt 4 D   &kp F             &kp G            &kp H      &kp J              &kp K  &kp L   &kp SEMICOLON  &kp ENTER
+&kp LSHFT  &kp Z   &kp X   &kp C     &kp V             &kp B            &kp SPACE  &kp RIGHT_COMMAND  &kp N  &kp M   &kp COMMA      &kp DOT    &kp SLASH  &mt RSHFT SINGLE_QUOTE
+&mo 1      &tog 7  &trans  &kp LALT  &kp LEFT_COMMAND  &lt 2 RIGHT_GUI  &lt 5 ESC  &lt_rep 5 SPACE    &mo 6  &trans  &kp BACKSLASH  &kp MINUS
             >;
         };
 
