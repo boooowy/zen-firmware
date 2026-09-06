@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "28274a629493c5bed0f7558d4292292e255b158a",
+  "source_commit": "ab868e13718a979c511a28894cb74144c52f2eee",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -622,11 +622,11 @@
           "action": "kp"
         },
         {
-          "tap": "▽",
+          "tap": "SPACE",
           "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
+          "type": null,
+          "binding": "&kp SPACE",
+          "action": "kp"
         },
         {
           "tap": "▽",
