@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "ab868e13718a979c511a28894cb74144c52f2eee",
+  "source_commit": "0169bd501088b0cf49cd9ce5b0c3ceef369942d0",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -708,17 +708,17 @@
           "action": "kp"
         },
         {
-          "tap": "LEFT COMMAND",
+          "tap": "RIGHT GUI",
           "hold": null,
           "type": null,
-          "binding": "&kp LEFT_COMMAND",
+          "binding": "&kp RIGHT_GUI",
           "action": "kp"
         },
         {
-          "tap": "RIGHT GUI",
+          "tap": "LEFT GUI",
           "hold": "2",
           "type": null,
-          "binding": "&lt 2 RIGHT_GUI",
+          "binding": "&lt 2 LEFT_GUI",
           "action": "lt",
           "layer": 2
         },
