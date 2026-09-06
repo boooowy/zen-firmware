@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "099167e3f87dad71989fdce659d71912fd4880b0",
+  "source_commit": "28274a629493c5bed0f7558d4292292e255b158a",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -518,11 +518,10 @@
         },
         {
           "tap": "D",
-          "hold": "4",
+          "hold": null,
           "type": null,
-          "binding": "&lt 4 D",
-          "action": "lt",
-          "layer": 4
+          "binding": "&kp D",
+          "action": "kp"
         },
         {
           "tap": "F",
@@ -1909,55 +1908,6 @@
           "action": "trans"
         },
         {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
-        },
-        {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
-        },
-        {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
-        },
-        {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
-        },
-        {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
-        },
-        {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
-        },
-        {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
-        },
-        {
           "tap": "",
           "hold": null,
           "type": "held",
@@ -2122,6 +2072,55 @@
           "tap": "▽",
           "hold": null,
           "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
+        },
+        {
+          "tap": "",
+          "hold": null,
+          "type": "held",
           "binding": "&trans",
           "action": "trans"
         },
