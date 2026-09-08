@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "d6bd76de3dd5d35745c5911cce17b3ad366a7b5e",
+  "source_commit": "39935fbdca56283b7fc996b3f32cf5f9d2626797",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -1599,18 +1599,18 @@
           "action": "trans"
         },
         {
-          "tap": "▽",
+          "tap": "{",
           "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
+          "type": null,
+          "binding": "&kp LEFT_BRACE",
+          "action": "kp"
         },
         {
-          "tap": "▽",
+          "tap": "}",
           "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
+          "type": null,
+          "binding": "&kp RIGHT_BRACE",
+          "action": "kp"
         },
         {
           "tap": "▽",
