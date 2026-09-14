@@ -6,6 +6,7 @@
  * @brief Common header file for all optical motion sensor by PIXART
  */
 
+#include <zephyr/kernel.h>
 #include <zephyr/device.h>
 #include <zephyr/drivers/spi.h>
 #include <zephyr/drivers/gpio.h>
@@ -35,6 +36,15 @@ struct pixart_data {
 
     bool                         ready; // whether init is finished successfully
     int                          err; // error code during async init
+
+    // Serializes every SPI access to the sensor. The driver's multi-transfer
+    // sequences are not atomic on their own: pmw3610_write() does
+    // CLK_ON -> k_sleep() -> write -> CLK_OFF and pmw3610_set_cpi() opens and
+    // closes a register page (0x7F), while SPI_CLK_ON_REQ and the page selector
+    // are state shared inside the sensor. A second context entering in the
+    // middle leaves the first one writing with the clock off or reading the
+    // wrong page, which comes back as 0xff.
+    struct k_mutex               lock;
 };
 
 // device config data structure

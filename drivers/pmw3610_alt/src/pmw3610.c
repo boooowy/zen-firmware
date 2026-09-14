@@ -57,6 +57,30 @@ static int (*const async_init_fn[ASYNC_INIT_STEP_COUNT])(const struct device *de
 
 //////// Function definitions //////////
 
+/* Every SPI access below is serialized on data->lock. The lock is taken at the
+ * level of a logical operation, not per transfer, because the window that has
+ * to stay intact spans several transfers (CLK_ON .. CLK_OFF, page open .. page
+ * close) and SPI_CLK_ON_REQ and the page selector are state shared inside the
+ * sensor. k_mutex is recursive, so nesting such as
+ * async_init_configure() -> set_performance() -> pmw3610_write() is fine.
+ * Functions suffixed _locked expect the caller to already hold the lock.
+ * The motion IRQ handler never touches SPI, so it never needs this lock. */
+#define PMW3610_LOCK_TIMEOUT K_MSEC(100)
+
+static int pmw3610_lock(const struct device *dev) {
+    struct pixart_data *data = dev->data;
+    int err = k_mutex_lock(&data->lock, PMW3610_LOCK_TIMEOUT);
+    if (err) {
+        LOG_ERR("Could not take the SPI lock (%d)", err);
+    }
+    return err;
+}
+
+static void pmw3610_unlock(const struct device *dev) {
+    struct pixart_data *data = dev->data;
+    k_mutex_unlock(&data->lock);
+}
+
 static int pmw3610_read(const struct device *dev, uint8_t addr, uint8_t *value, uint8_t len) {
 	const struct pixart_config *cfg = dev->config;
 	const struct spi_buf tx_buf = { .buf = &addr, .len = sizeof(addr) };
@@ -66,7 +90,13 @@ static int pmw3610_read(const struct device *dev, uint8_t addr, uint8_t *value, 
 		{ .buf = value, .len = len, },
 	};
 	const struct spi_buf_set rx = { .buffers = rx_buf, .count = ARRAY_SIZE(rx_buf) };
-	return spi_transceive_dt(&cfg->spi, &tx, &rx);
+	int err = pmw3610_lock(dev);
+	if (err) {
+		return err;
+	}
+	err = spi_transceive_dt(&cfg->spi, &tx, &rx);
+	pmw3610_unlock(dev);
+	return err;
 }
 
 static int pmw3610_read_reg(const struct device *dev, uint8_t addr, uint8_t *value) {
@@ -81,7 +111,7 @@ static int pmw3610_write_reg(const struct device *dev, uint8_t addr, uint8_t val
 	return spi_write_dt(&cfg->spi, &tx);
 }
 
-static int pmw3610_write(const struct device *dev, uint8_t reg, uint8_t val) {
+static int pmw3610_write_locked(const struct device *dev, uint8_t reg, uint8_t val) {
 	pmw3610_write_reg(dev, PMW3610_REG_SPI_CLK_ON_REQ, PMW3610_SPI_CLOCK_CMD_ENABLE);
 	k_sleep(K_USEC(T_CLOCK_ON_DELAY_US));
 
@@ -92,6 +122,18 @@ static int pmw3610_write(const struct device *dev, uint8_t reg, uint8_t val) {
     
     pmw3610_write_reg(dev, PMW3610_REG_SPI_CLK_ON_REQ, PMW3610_SPI_CLOCK_CMD_DISABLE);
     return 0;
+}
+
+static int pmw3610_write(const struct device *dev, uint8_t reg, uint8_t val) {
+    int err = pmw3610_lock(dev);
+    if (err) {
+        return err;
+    }
+    /* pmw3610_write_locked() returns early when the payload write fails,
+     * leaving the sensor's SPI clock on; releasing the lock here covers it. */
+    err = pmw3610_write_locked(dev, reg, val);
+    pmw3610_unlock(dev);
+    return err;
 }
 
 static int pmw3610_set_cpi(const struct device *dev, uint32_t cpi, 
@@ -145,6 +187,14 @@ static int pmw3610_set_cpi(const struct device *dev, uint32_t cpi,
     LOG_INF("Setting CPI to %u (reg value 0x%x)", cpi, value);
 
     /* set the cpi */
+    /* addr[] opens (0x7F=0xFF) and closes (0x7F=0x00) a register page. An
+     * access from another context inside that window hits the wrong page, so
+     * the whole burst has to be held, not the individual transfers. */
+    int lock_err = pmw3610_lock(dev);
+    if (lock_err) {
+        return lock_err;
+    }
+
     uint8_t addr[] = {0x7F, PMW3610_REG_RES_STEP, 0x7F};
     uint8_t data[] = {0xFF, value,                0x00};
 
@@ -160,6 +210,7 @@ static int pmw3610_set_cpi(const struct device *dev, uint32_t cpi,
         }
     }
     pmw3610_write_reg(dev, PMW3610_REG_SPI_CLK_ON_REQ, PMW3610_SPI_CLOCK_CMD_DISABLE);
+    pmw3610_unlock(dev);
 
     if (err) {
         LOG_ERR("Failed to set CPI");
@@ -250,7 +301,7 @@ static int pmw3610_set_downshift_time(const struct device *dev, uint8_t reg_addr
     return err;
 }
 
-static int pmw3610_set_performance(const struct device *dev, bool enabled) {
+static int pmw3610_set_performance_locked(const struct device *dev, bool enabled) {
     const struct pixart_config *config = dev->config;
     int err = 0;
 
@@ -292,6 +343,16 @@ static int pmw3610_set_performance(const struct device *dev, bool enabled) {
     return err;
 }
 
+static int pmw3610_set_performance(const struct device *dev, bool enabled) {
+    int err = pmw3610_lock(dev);
+    if (err) {
+        return err;
+    }
+    err = pmw3610_set_performance_locked(dev, enabled);
+    pmw3610_unlock(dev);
+    return err;
+}
+
 static int pmw3610_set_interrupt(const struct device *dev, const bool en) {
     const struct pixart_config *config = dev->config;
     int ret = gpio_pin_interrupt_configure_dt(&config->irq_gpio,
@@ -303,7 +364,12 @@ static int pmw3610_set_interrupt(const struct device *dev, const bool en) {
 }
 
 static int pmw3610_async_init_power_up(const struct device *dev) {
-	int ret = pmw3610_write_reg(dev, PMW3610_REG_POWER_UP_RESET, PMW3610_POWERUP_CMD_RESET);
+    int ret = pmw3610_lock(dev);
+    if (ret) {
+        return ret;
+    }
+	ret = pmw3610_write_reg(dev, PMW3610_REG_POWER_UP_RESET, PMW3610_POWERUP_CMD_RESET);
+    pmw3610_unlock(dev);
     if (ret < 0) {
         return ret;
     }
@@ -569,6 +635,10 @@ static int pmw3610_init(const struct device *dev) {
     const struct pixart_config *config = dev->config;
     int err;
 
+    /* Initialised ahead of the readiness check below: on_activity_state()
+     * reaches every device in pmw3610_devs[] even when this init bailed out. */
+    k_mutex_init(&data->lock);
+
 	if (!spi_is_ready_dt(&config->spi)) {
 		LOG_ERR("%s is not ready", config->spi.bus->name);
 		return -ENODEV;
@@ -721,7 +791,20 @@ static int on_activity_state(const zmk_event_t *eh) {
 
     bool enable = state_ev->state == ZMK_ACTIVITY_ACTIVE ? 1 : 0;
     for (size_t i = 0; i < ARRAY_SIZE(pmw3610_devs); i++) {
-        pmw3610_set_performance(pmw3610_devs[i], enable);
+        const struct device *dev = pmw3610_devs[i];
+        struct pixart_data *data = dev->data;
+
+        /* Async init runs as four delayed work items, so the queue is free
+         * between the steps and this listener can land in the middle of the
+         * init sequence. Skip sensors that are not up yet.
+         * This belongs here and NOT inside pmw3610_set_performance():
+         * async_init_configure() calls that function while ready is still
+         * false, and guarding it there would break init. */
+        if (!data->ready) {
+            continue;
+        }
+
+        pmw3610_set_performance(dev, enable);
     }
 
     return 0;
