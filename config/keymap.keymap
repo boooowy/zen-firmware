@@ -128,10 +128,10 @@
 
         layer_6 {
             bindings = <
-&trans        &kp F1        &kp F2        &kp F3        &kp F4        &kp F5      &trans          &kp FSLH  &kp ASTRK  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9
-&trans        &kp F6        &kp F7        &kp F8        &kp F9        &kp F10     &kp HOME        &trans    &kp MINUS  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6
-&trans        &kp F11       &kp F12       &out OUT_USB  &out OUT_BLE  &bt BT_NXT  &bt BT_CLR_ALL  &trans    &kp END    &trans           &kp GRAVE        &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3
-&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans      &trans          &trans    &trans     &kp KP_NUMBER_0  &kp DOT          &kp EQUAL
+&trans        &kp F1        &kp F2        &kp F3        &kp F4        &kp F5      &trans          &kp FSLH         &kp ASTRK  &kp KP_NUMBER_7    &kp KP_NUMBER_8  &kp KP_NUMBER_9
+&trans        &kp F6        &kp F7        &kp F8        &kp F9        &kp F10     &kp HOME        &kp C_VOLUME_UP  &kp MINUS  &kp KP_NUMBER_4    &kp KP_NUMBER_5  &kp KP_NUMBER_6
+&trans        &kp F11       &kp F12       &out OUT_USB  &out OUT_BLE  &bt BT_NXT  &bt BT_CLR_ALL  &trans           &kp END    &kp C_VOLUME_DOWN  &kp GRAVE        &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3
+&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans      &trans          &trans           &trans     &kp KP_NUMBER_0    &kp DOT          &kp EQUAL
             >;
         };
 
