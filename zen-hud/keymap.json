@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "fdee1bc9098ea53942e97e504f14d4ac0835dae1",
+  "source_commit": "ed80687bcca3dafa8fd784e237467be92bf83f9a",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -2701,11 +2701,11 @@
           "action": "kp"
         },
         {
-          "tap": "▽",
+          "tap": "VOLUME UP",
           "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
+          "type": null,
+          "binding": "&kp C_VOLUME_UP",
+          "action": "kp"
         },
         {
           "tap": "-",
@@ -2799,11 +2799,11 @@
           "action": "kp"
         },
         {
-          "tap": "▽",
+          "tap": "VOLUME DOWN",
           "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
+          "type": null,
+          "binding": "&kp C_VOLUME_DOWN",
+          "action": "kp"
         },
         {
           "tap": "`",
