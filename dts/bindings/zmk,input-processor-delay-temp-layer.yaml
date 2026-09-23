@@ -79,6 +79,24 @@ properties:
     default: []
     description: Array of key positions that will NOT trigger layer deactivation when pressed
 
+  exit-after-release-positions:
+    type: array
+    required: false
+    default: []
+    description: |
+      Key positions (typically left click) whose release shortens the layer's
+      deactivation timeout to exit-after-release-ms. Pressing one of them again
+      cancels the pending deactivation, so double clicks and drags still work.
+      Moving the pointer re-arms the regular timeout as usual.
+
+  exit-after-release-ms:
+    type: int
+    required: false
+    default: 0
+    description: |
+      Deactivation timeout in milliseconds applied after releasing one of
+      exit-after-release-positions. 0 disables the behaviour.
+
 input-processor-cells:
   - param1
   - param2

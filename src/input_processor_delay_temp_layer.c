@@ -37,6 +37,9 @@ struct delay_temp_layer_config {
     uint16_t movement_gap_ms;
     const uint16_t *excluded_positions;
     size_t num_positions;
+    const uint16_t *exit_positions;
+    size_t num_exit_positions;
+    uint16_t exit_after_release_ms;
 };
 
 struct delay_temp_layer_state {
@@ -59,13 +62,13 @@ struct delay_temp_layer_data {
 static struct k_work_delayable layer_disable_works[MAX_LAYERS];
 
 /* Position Search */
-static bool position_is_excluded(const struct delay_temp_layer_config *config, uint32_t position) {
-    if (!config->excluded_positions || !config->num_positions) {
+static bool position_in_list(const uint16_t *positions, size_t num_positions, uint32_t position) {
+    if (!positions || !num_positions) {
         return false;
     }
 
-    const uint16_t *end = config->excluded_positions + config->num_positions;
-    for (const uint16_t *pos = config->excluded_positions; pos < end; pos++) {
+    const uint16_t *end = positions + num_positions;
+    for (const uint16_t *pos = positions; pos < end; pos++) {
         if (*pos == position) {
             return true;
         }
@@ -165,7 +168,12 @@ static int handle_layer_state_changed(const struct device *dev, const zmk_event_
 
 static int handle_position_state_changed(const struct device *dev, const zmk_event_t *eh) {
     const struct zmk_position_state_changed *ev = as_zmk_position_state_changed(eh);
-    if (!ev->state) {
+    const struct delay_temp_layer_config *cfg = dev->config;
+    const bool is_exit_position =
+        cfg->exit_after_release_ms > 0 &&
+        position_in_list(cfg->exit_positions, cfg->num_exit_positions, ev->position);
+
+    if (!ev->state && !is_exit_position) {
         return ZMK_EV_EVENT_BUBBLE;
     }
 
@@ -175,10 +183,19 @@ static int handle_position_state_changed(const struct device *dev, const zmk_eve
         return ret;
     }
 
-    const struct delay_temp_layer_config *cfg = dev->config;
+    struct k_work_delayable *disable_work = &layer_disable_works[data->state.toggle_layer];
 
-    if (data->state.is_active && cfg->excluded_positions && cfg->num_positions > 0) {
-        if (!position_is_excluded(cfg, ev->position)) {
+    if (!ev->state) {
+        /* Releasing a click: leave the layer shortly unless the pointer moves or
+         * the click is pressed again (double click) before then. */
+        if (data->state.is_active) {
+            k_work_reschedule(disable_work, K_MSEC(cfg->exit_after_release_ms));
+        }
+    } else if (data->state.is_active && is_exit_position) {
+        /* Keep the layer while a click is held, e.g. dragging right after a click. */
+        k_work_cancel_delayable(disable_work);
+    } else if (data->state.is_active && cfg->excluded_positions && cfg->num_positions > 0) {
+        if (!position_in_list(cfg->excluded_positions, cfg->num_positions, ev->position)) {
             LOG_DBG("Position not excluded, deactivating layer");
             update_layer_state(&data->state, false);
         }
@@ -325,7 +342,9 @@ static const struct zmk_input_processor_driver_api delay_temp_layer_driver_api =
 };
 
 /* Event Listeners Conditions */
-#define NEEDS_POSITION_HANDLERS(n, ...) DT_INST_PROP_HAS_IDX(n, excluded_positions, 0)
+#define NEEDS_POSITION_HANDLERS(n, ...)                                                            \
+    (DT_INST_PROP_HAS_IDX(n, excluded_positions, 0) ||                                             \
+     DT_INST_PROP_HAS_IDX(n, exit_after_release_positions, 0))
 #define NEEDS_KEYCODE_HANDLERS(n, ...)                                                             \
     ((DT_INST_PROP_OR(n, require_prior_idle_ms, 0) > 0) ||                                         \
      (DT_INST_PROP_OR(n, typing_window_ms, 0) > 0))
@@ -347,6 +366,7 @@ ZMK_SUBSCRIPTION(processor_delay_temp_layer, zmk_keycode_state_changed);
 #define DELAY_TEMP_LAYER_INST(n)                                                                   \
     static struct delay_temp_layer_data processor_delay_temp_layer_data_##n = {};                  \
     static const uint16_t excluded_positions_##n[] = DT_INST_PROP(n, excluded_positions);          \
+    static const uint16_t exit_positions_##n[] = DT_INST_PROP(n, exit_after_release_positions);    \
     static const struct delay_temp_layer_config processor_delay_temp_layer_config_##n = {          \
         .require_prior_idle_ms = DT_INST_PROP_OR(n, require_prior_idle_ms, 0),                     \
         .activation_delay_ms = DT_INST_PROP_OR(n, activation_delay_ms, 0),                         \
@@ -357,6 +377,9 @@ ZMK_SUBSCRIPTION(processor_delay_temp_layer, zmk_keycode_state_changed);
         .movement_gap_ms = DT_INST_PROP_OR(n, movement_gap_ms, 50),                                \
         .excluded_positions = excluded_positions_##n,                                              \
         .num_positions = DT_INST_PROP_LEN(n, excluded_positions),                                  \
+        .exit_positions = exit_positions_##n,                                                      \
+        .num_exit_positions = DT_INST_PROP_LEN(n, exit_after_release_positions),                   \
+        .exit_after_release_ms = DT_INST_PROP_OR(n, exit_after_release_ms, 0),                     \
     };                                                                                             \
     DEVICE_DT_INST_DEFINE(n, delay_temp_layer_init, NULL, &processor_delay_temp_layer_data_##n,    \
                           &processor_delay_temp_layer_config_##n, POST_KERNEL,                     \
