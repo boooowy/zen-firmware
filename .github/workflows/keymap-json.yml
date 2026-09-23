@@ -33,7 +33,9 @@ jobs:
           python-version: "3.12"
 
       - name: Install keymap-drawer
-        run: pip install keymap-drawer
+        # Pinned: the generator reads keymap-drawer's parsed output, so a new
+        # release can change keymap.json without anyone touching the keymap.
+        run: pip install keymap-drawer==0.23.0
 
       - name: Generate zen-hud/keymap.json
         run: python tools/build_keymap_json.py
