@@ -35,8 +35,10 @@ LOG_MODULE_DECLARE(zen_telemetry, CONFIG_ZEN_TELEMETRY_LOG_LEVEL);
 #define ZEN_TM_SNAPSHOT_CHRC_UUID ZEN_TM_UUID(0x47c59b6f)
 #define ZEN_TM_PROFILES_CHRC_UUID ZEN_TM_UUID(0x47c59b70)
 
-#define ZEN_TM_PROFILES_LEN                                                                        \
-    (ZEN_TM_PROFILES_HDR_LEN + ZMK_BLE_PROFILE_COUNT * ZEN_TM_PROFILE_SLOT_LEN)
+/* The longest the characteristic can be: every slot carrying a full name. */
+#define ZEN_TM_PROFILES_MAX_LEN                                                                    \
+    (ZEN_TM_PROFILES_HDR_LEN +                                                                     \
+     ZMK_BLE_PROFILE_COUNT * (ZEN_TM_PROFILE_SLOT_FIXED_LEN + ZEN_TM_HOST_NAME_MAX))
 
 static atomic_t events_subscribed;
 static atomic_t snapshot_subscribed;
@@ -78,14 +80,15 @@ static ssize_t read_snapshot(struct bt_conn *conn, const struct bt_gatt_attr *at
  * re-reads it whenever a snapshot arrives, which covers profile switches. */
 static ssize_t read_profiles(struct bt_conn *conn, const struct bt_gatt_attr *attr, void *buf,
                              uint16_t len, uint16_t offset) {
-    uint8_t profiles[ZEN_TM_PROFILES_LEN];
+    uint8_t profiles[ZEN_TM_PROFILES_MAX_LEN];
+    size_t used = ZEN_TM_PROFILES_HDR_LEN;
     int active = zmk_ble_active_profile_index();
 
     profiles[0] = ZEN_TM_PROFILES_VER;
     profiles[1] = ZMK_BLE_PROFILE_COUNT;
 
     for (uint8_t i = 0; i < ZMK_BLE_PROFILE_COUNT; i++) {
-        uint8_t *slot = &profiles[ZEN_TM_PROFILES_HDR_LEN + i * ZEN_TM_PROFILE_SLOT_LEN];
+        uint8_t *slot = &profiles[used];
         const bt_addr_le_t *peer = zmk_ble_profile_address(i);
         uint8_t flags = 0;
 
@@ -103,9 +106,17 @@ static ssize_t read_profiles(struct bt_conn *conn, const struct bt_gatt_attr *at
         slot[1] = peer->type;
         /* bt_addr_t is stored least significant byte first; sent as is. */
         memcpy(&slot[2], peer->a.val, sizeof(peer->a.val));
+        /* Empty for an open profile and for a host not yet read. */
+        size_t name_len = zmk_ble_profile_is_open(i)
+                              ? 0
+                              : zen_telemetry_host_name(i, peer, &slot[ZEN_TM_PROFILE_SLOT_FIXED_LEN],
+                                                        ZEN_TM_HOST_NAME_MAX);
+        slot[8] = (uint8_t)name_len;
+
+        used += ZEN_TM_PROFILE_SLOT_FIXED_LEN + name_len;
     }
 
-    return bt_gatt_attr_read(conn, attr, buf, len, offset, profiles, sizeof(profiles));
+    return bt_gatt_attr_read(conn, attr, buf, len, offset, profiles, used);
 }
 
 BT_GATT_SERVICE_DEFINE(

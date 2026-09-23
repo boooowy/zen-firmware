@@ -13,6 +13,7 @@
 #pragma once
 
 #include <zephyr/kernel.h>
+#include <zephyr/bluetooth/addr.h>
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
@@ -60,10 +61,15 @@
 #define ZEN_TM_ENDPOINT_BLE 0x01
 
 /* `profiles` characteristic: which host each BLE profile is bonded to.
- * A 2 byte header (version, slot count) followed by one 8 byte slot each. */
-#define ZEN_TM_PROFILES_VER 1
+ * A 2 byte header (version, slot count) followed by one slot each: a 9 byte
+ * fixed part (flags, address type, address, name length) and then the name. */
+#define ZEN_TM_PROFILES_VER 2
 #define ZEN_TM_PROFILES_HDR_LEN 2
-#define ZEN_TM_PROFILE_SLOT_LEN 8
+#define ZEN_TM_PROFILE_SLOT_FIXED_LEN 9
+
+/* Longest host name kept, in bytes of UTF-8. Longer names are cut at a
+ * character boundary. */
+#define ZEN_TM_HOST_NAME_MAX 32
 
 /* Profile slot flags byte */
 #define ZEN_TM_PROFILE_FLAG_OPEN BIT(0)
@@ -100,3 +106,11 @@ void zen_telemetry_request_snapshot(void);
 
 /** Write ZEN_TM_SNAPSHOT_LEN bytes of current state. Safe from any thread. */
 void zen_telemetry_fill_snapshot(uint8_t *out);
+
+/**
+ * Copy the GAP Device Name last read from the host bonded to profile `index`
+ * into `out` (not NUL terminated) and return its length. Returns 0 when no
+ * name is known, or when the name was read from a different host than `peer`
+ * -- the profile has been cleared or re-paired since.
+ */
+size_t zen_telemetry_host_name(uint8_t index, const bt_addr_le_t *peer, uint8_t *out, size_t max);

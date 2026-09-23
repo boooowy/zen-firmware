@@ -159,34 +159,50 @@ byte  18..19 dropped_events  uint16, saturating count since boot
 stalled; the HUD can surface it, but the snapshot itself already repairs the
 state.
 
-## `profiles` — 2 + 8 × count bytes
+## `profiles` — variable length
 
-Which host each BLE profile slot (`&bt BT_SEL n`) is bonded to, so a host can
-tell the user which slot is which machine. 42 bytes on ZEN (5 slots). That is
-longer than a minimum-MTU payload; it is read-only, so the host stack fetches
-the tail with Read Blob and no packing is needed.
+Which host each BLE profile slot (`&bt BT_SEL n`) is bonded to, and what that
+host calls itself, so a companion app can tell the user which slot is which
+machine. ZEN has 4 host profiles (`CONFIG_BT_MAX_PAIRED` minus the one the
+split link uses), so at most 2 + 4 × (9 + 32) = 166 bytes. That is longer than
+a minimum-MTU payload; it is read-only, so the host stack fetches the tail with
+Read Blob and no packing is needed.
 
 ```
-byte 0   version   1 for this document
+byte 0   version   2 for this document
 byte 1   count     number of slots that follow
-byte 2+  slots     8 bytes each, in profile index order
+byte 2+  slots     back-to-back, in profile index order
 ```
 
 Each slot:
 
 ```
-0    flags      bit0 = open (no bond), bit1 = connected, bit2 = active profile
-1    addr_type  0 = public, 1 = random (Zephyr BT_ADDR_LE_*)
-2..7 addr       6 bytes, least significant byte first
+0      flags      bit0 = open (no bond), bit1 = connected, bit2 = active profile
+1      addr_type  0 = public, 1 = random (Zephyr BT_ADDR_LE_*)
+2..7   addr       6 bytes, least significant byte first
+8      name_len   0..32
+9..    name       name_len bytes of UTF-8, no terminator
 ```
 
 The address is the bonded peer's **identity** address — the one the host shows
 as its own Bluetooth address, not a rotating private address. An open slot
-carries all zeroes.
+carries all zeroes and no name.
+
+The name is the host's own GAP Device Name (0x2A00): the computer name on
+Windows, "<user>'s Mac mini" and the like on Apple devices. The keyboard reads
+it once per connection, a few seconds after the link is encrypted, and keeps it
+in flash together with the address it came from, so a profile that is cleared
+or re-paired never shows the previous host's name. A host that has not been
+connected since the firmware that reads names was installed has `name_len` 0.
+Names longer than 32 bytes are cut at a UTF-8 character boundary.
 
 It is never notified. A host re-reads it whenever a `snapshot` arrives, which
-happens on every profile switch. A reader must ignore trailing bytes beyond
-`count` slots and refuse a `version` it does not know.
+happens on every profile switch and whenever a newly read name changes. A
+reader must ignore trailing bytes beyond `count` slots and refuse a `version`
+it does not know.
+
+Version 1, from the firmware that introduced this characteristic, had no name:
+each slot was the first 8 bytes above. Readers accept both.
 
 ## Combo detection (host side)
 

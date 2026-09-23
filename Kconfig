@@ -229,6 +229,9 @@ config ZEN_TELEMETRY_BLE
     bool "Carry ZEN telemetry over a custom BLE GATT service"
     default y
     depends on ZMK_BLE
+    # Reads each host's GAP Device Name, so the companion app can say which
+    # machine sits on which BLE profile.
+    select BT_GATT_CLIENT
     help
       Adds a notify-only GATT service alongside HID, so the companion app needs
       no cable and no input monitoring permission.
