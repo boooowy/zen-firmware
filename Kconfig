@@ -246,7 +246,11 @@ config ZEN_TELEMETRY_RING_SIZE
 
 config ZEN_TELEMETRY_STACK_SIZE
     int "Telemetry work queue stack size (bytes)"
-    default 1024
+    default 2048
+    help
+      The queue notifies every subscribed host, reads host names over GATT and
+      writes them to flash. An overflow here would fault the whole keyboard,
+      not just telemetry, so this is sized with room to spare.
 
 config ZEN_TELEMETRY_THREAD_PRIORITY
     int "Telemetry work queue thread priority"

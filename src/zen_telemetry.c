@@ -63,6 +63,10 @@ static uint16_t dropped;
 static uint8_t frame_seq;
 
 static atomic_t snapshot_pending;
+/* Consecutive failed snapshot sends. Only touched on the telemetry queue. */
+static uint8_t snapshot_failures;
+/* About half a second of retries at the default retry interval. */
+#define ZEN_TM_SNAPSHOT_MAX_RETRIES 25
 
 static K_THREAD_STACK_DEFINE(zen_tm_stack, CONFIG_ZEN_TELEMETRY_STACK_SIZE);
 static struct k_work_q zen_tm_workq;
@@ -84,6 +88,18 @@ static size_t rec_len(uint8_t type) {
         return ZEN_TM_MODS_LEN;
     default:
         return 0;
+    }
+}
+
+void zen_telemetry_schedule(struct k_work_delayable *work, k_timeout_t delay) {
+    if (started) {
+        k_work_reschedule_for_queue(&zen_tm_workq, work, delay);
+    }
+}
+
+void zen_telemetry_submit(struct k_work *work) {
+    if (started) {
+        k_work_submit_to_queue(&zen_tm_workq, work);
     }
 }
 
@@ -192,12 +208,22 @@ static void zen_tm_work_handler(struct k_work *work) {
 
         int err = s->send_snapshot(snapshot, sizeof(snapshot));
         if (err < 0) {
+            /* Bounded: a send that keeps failing must not spin this thread
+             * and the radio for as long as the condition lasts. The next
+             * status change or subscription queues a fresh one. */
+            if (++snapshot_failures >= ZEN_TM_SNAPSHOT_MAX_RETRIES) {
+                LOG_WRN("snapshot send failed %d times (%d), giving up for now",
+                        snapshot_failures, err);
+                snapshot_failures = 0;
+                return;
+            }
             LOG_DBG("snapshot send failed (%d), retrying", err);
             atomic_set(&snapshot_pending, 1);
             k_work_reschedule_for_queue(&zen_tm_workq, &zen_tm_work,
                                         K_MSEC(CONFIG_ZEN_TELEMETRY_RETRY_MS));
             return;
         }
+        snapshot_failures = 0;
     }
 
     /* Typing on a host that is not listening -- a Windows PC while a Mac is

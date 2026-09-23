@@ -14,6 +14,11 @@
  * Kept deliberately small and gentle: one read per connection, a few seconds
  * after the link is up so it never competes with the host's own HID setup, one
  * read in flight at a time, and a flash write only when a name changes.
+ *
+ * Both the read and the flash write run on the telemetry queue, never the
+ * system workqueue. A GATT request can wait up to BT_ATT_TIMEOUT (30 s) for a
+ * free request slot, and ZMK does its own work on the system queue; on ours,
+ * the worst a stall can hold up is telemetry.
  */
 
 #include <zephyr/kernel.h>
@@ -110,7 +115,7 @@ static size_t utf8_trim(const uint8_t *s, size_t len) {
 static void finish_read(void) {
     read_in_flight = false;
     /* Another host may be waiting its turn. */
-    k_work_reschedule(&fetch_work, K_NO_WAIT);
+    zen_telemetry_schedule(&fetch_work, K_NO_WAIT);
 }
 
 static uint8_t name_read_cb(struct bt_conn *conn, uint8_t err, struct bt_gatt_read_params *params,
@@ -138,7 +143,7 @@ static uint8_t name_read_cb(struct bt_conn *conn, uint8_t err, struct bt_gatt_re
         host->len = (uint8_t)len;
         memcpy(host->name, data, len);
         atomic_set_bit(&dirty, index);
-        k_work_submit(&save_work);
+        zen_telemetry_submit(&save_work);
         /* Let a subscribed companion app pick the new name up. */
         zen_telemetry_request_snapshot();
     }
@@ -248,7 +253,7 @@ static void security_changed(struct bt_conn *conn, bt_security_t level, enum bt_
     ARG_UNUSED(conn);
 
     if (err == BT_SECURITY_ERR_SUCCESS && level >= BT_SECURITY_L2) {
-        k_work_reschedule(&fetch_work, HOST_NAME_READ_DELAY);
+        zen_telemetry_schedule(&fetch_work, HOST_NAME_READ_DELAY);
     }
 }
 

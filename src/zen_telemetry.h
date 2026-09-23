@@ -104,6 +104,15 @@ void zen_telemetry_register_sink(const struct zen_telemetry_sink *sink);
 /** Queue a full-state snapshot. Sinks call this when a host subscribes. */
 void zen_telemetry_request_snapshot(void);
 
+/**
+ * Run work on the telemetry queue: a low priority thread of its own, never the
+ * system workqueue ZMK depends on. Anything telemetry does that can block -- a
+ * GATT request waiting for a buffer, a flash write -- goes here, so the worst
+ * it can stall is telemetry. Dropped silently before the queue has started.
+ */
+void zen_telemetry_schedule(struct k_work_delayable *work, k_timeout_t delay);
+void zen_telemetry_submit(struct k_work *work);
+
 /** Write ZEN_TM_SNAPSHOT_LEN bytes of current state. Safe from any thread. */
 void zen_telemetry_fill_snapshot(uint8_t *out);
 
