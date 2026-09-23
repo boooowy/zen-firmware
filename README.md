@@ -56,6 +56,17 @@ GitHub Actionsで作成される `firmware` というzipファイルには、以
 6. 右手と左手の対応コントローラへUF2ファイルを書き込みます
 7. PCやMacの接続設定から `ZEN` として接続します
 
+## ZEN HUD を使う
+
+[ZEN HUD](https://github.com/boooowy/zen-hud) は、有効なレイヤーや押されているキー、バッテリーを
+macOS の画面に表示するアプリです。使うには、右手に通常版の代わりにテレメトリ対応の UF2 を書き込みます。
+
+- `zen_right_trackball_pmw3610_central_telemetry.uf2`
+- `zen_right_trackball_paw3222_central_telemetry.uf2`
+- `zen_right_trackpad_central_telemetry.uf2`
+
+左手はそのままで構いません。手順は [docs/zen-hud-setup.md](docs/zen-hud-setup.md) を参照してください。
+
 ## 対象
 
 このリポジトリは、PMW3610トラックボール版を標準構成とし、左右それぞれでPAW3222およびTrackpadを使用する構成にも対応しています。
