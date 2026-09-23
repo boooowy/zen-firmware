@@ -59,6 +59,17 @@
 #define ZEN_TM_ENDPOINT_USB 0x00
 #define ZEN_TM_ENDPOINT_BLE 0x01
 
+/* `profiles` characteristic: which host each BLE profile is bonded to.
+ * A 2 byte header (version, slot count) followed by one 8 byte slot each. */
+#define ZEN_TM_PROFILES_VER 1
+#define ZEN_TM_PROFILES_HDR_LEN 2
+#define ZEN_TM_PROFILE_SLOT_LEN 8
+
+/* Profile slot flags byte */
+#define ZEN_TM_PROFILE_FLAG_OPEN BIT(0)
+#define ZEN_TM_PROFILE_FLAG_CONNECTED BIT(1)
+#define ZEN_TM_PROFILE_FLAG_ACTIVE BIT(2)
+
 /**
  * @brief A transport that carries telemetry to the host.
  *

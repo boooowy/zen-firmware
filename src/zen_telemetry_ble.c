@@ -20,6 +20,8 @@
 #include <zephyr/bluetooth/uuid.h>
 #include <zephyr/logging/log.h>
 
+#include <string.h>
+
 #include <zmk/ble.h>
 
 #include "zen_telemetry.h"
@@ -31,6 +33,10 @@ LOG_MODULE_DECLARE(zen_telemetry, CONFIG_ZEN_TELEMETRY_LOG_LEVEL);
 #define ZEN_TM_SERVICE_UUID ZEN_TM_UUID(0x47c59b6d)
 #define ZEN_TM_EVENTS_CHRC_UUID ZEN_TM_UUID(0x47c59b6e)
 #define ZEN_TM_SNAPSHOT_CHRC_UUID ZEN_TM_UUID(0x47c59b6f)
+#define ZEN_TM_PROFILES_CHRC_UUID ZEN_TM_UUID(0x47c59b70)
+
+#define ZEN_TM_PROFILES_LEN                                                                        \
+    (ZEN_TM_PROFILES_HDR_LEN + ZMK_BLE_PROFILE_COUNT * ZEN_TM_PROFILE_SLOT_LEN)
 
 static atomic_t events_subscribed;
 static atomic_t snapshot_subscribed;
@@ -67,6 +73,41 @@ static ssize_t read_snapshot(struct bt_conn *conn, const struct bt_gatt_attr *at
     return bt_gatt_attr_read(conn, attr, buf, len, offset, snapshot, sizeof(snapshot));
 }
 
+/* Longer than a minimum MTU payload on purpose: this is read only, and the host
+ * stack fetches the tail with Read Blob. It is never notified -- the host
+ * re-reads it whenever a snapshot arrives, which covers profile switches. */
+static ssize_t read_profiles(struct bt_conn *conn, const struct bt_gatt_attr *attr, void *buf,
+                             uint16_t len, uint16_t offset) {
+    uint8_t profiles[ZEN_TM_PROFILES_LEN];
+    int active = zmk_ble_active_profile_index();
+
+    profiles[0] = ZEN_TM_PROFILES_VER;
+    profiles[1] = ZMK_BLE_PROFILE_COUNT;
+
+    for (uint8_t i = 0; i < ZMK_BLE_PROFILE_COUNT; i++) {
+        uint8_t *slot = &profiles[ZEN_TM_PROFILES_HDR_LEN + i * ZEN_TM_PROFILE_SLOT_LEN];
+        const bt_addr_le_t *peer = zmk_ble_profile_address(i);
+        uint8_t flags = 0;
+
+        if (zmk_ble_profile_is_open(i)) {
+            flags |= ZEN_TM_PROFILE_FLAG_OPEN;
+        }
+        if (zmk_ble_profile_is_connected(i)) {
+            flags |= ZEN_TM_PROFILE_FLAG_CONNECTED;
+        }
+        if ((int)i == active) {
+            flags |= ZEN_TM_PROFILE_FLAG_ACTIVE;
+        }
+
+        slot[0] = flags;
+        slot[1] = peer->type;
+        /* bt_addr_t is stored least significant byte first; sent as is. */
+        memcpy(&slot[2], peer->a.val, sizeof(peer->a.val));
+    }
+
+    return bt_gatt_attr_read(conn, attr, buf, len, offset, profiles, sizeof(profiles));
+}
+
 BT_GATT_SERVICE_DEFINE(
     zen_telemetry_svc, BT_GATT_PRIMARY_SERVICE(BT_UUID_DECLARE_128(ZEN_TM_SERVICE_UUID)),
     BT_GATT_CHARACTERISTIC(BT_UUID_DECLARE_128(ZEN_TM_EVENTS_CHRC_UUID), BT_GATT_CHRC_NOTIFY,
@@ -75,7 +116,10 @@ BT_GATT_SERVICE_DEFINE(
     BT_GATT_CHARACTERISTIC(BT_UUID_DECLARE_128(ZEN_TM_SNAPSHOT_CHRC_UUID),
                            BT_GATT_CHRC_READ | BT_GATT_CHRC_NOTIFY, BT_GATT_PERM_READ_ENCRYPT,
                            read_snapshot, NULL, NULL),
-    BT_GATT_CCC(snapshot_ccc_changed, BT_GATT_PERM_READ_ENCRYPT | BT_GATT_PERM_WRITE_ENCRYPT));
+    BT_GATT_CCC(snapshot_ccc_changed, BT_GATT_PERM_READ_ENCRYPT | BT_GATT_PERM_WRITE_ENCRYPT),
+    /* Appended last so the attribute indices below stay where they were. */
+    BT_GATT_CHARACTERISTIC(BT_UUID_DECLARE_128(ZEN_TM_PROFILES_CHRC_UUID), BT_GATT_CHRC_READ,
+                           BT_GATT_PERM_READ_ENCRYPT, read_profiles, NULL, NULL));
 
 /* attrs[1] and attrs[4] are the characteristic declarations; bt_gatt_notify()
  * walks from a declaration to its value attribute for us. */

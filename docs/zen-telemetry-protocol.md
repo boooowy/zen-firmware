@@ -17,10 +17,13 @@ Input Monitoring permission on the host.
 | Service | `47c59b6d-048a-4fa7-921f-955c966a2c38` |
 | `events` characteristic | `47c59b6e-048a-4fa7-921f-955c966a2c38` |
 | `snapshot` characteristic | `47c59b6f-048a-4fa7-921f-955c966a2c38` |
+| `profiles` characteristic | `47c59b70-048a-4fa7-921f-955c966a2c38` |
 
 - `events`: **Notify** only. Notifications are used rather than indications so a
   burst of typing can never block the link waiting for an ack.
 - `snapshot`: **Read + Notify**.
+- `profiles`: **Read** only, encrypted link required. Optional: firmware older
+  than this characteristic simply does not have it.
 - Both CCC descriptors require an encrypted (bonded) link.
 
 Enabled by `CONFIG_ZEN_TELEMETRY=y` — see the `zen-telemetry` snippet and the
@@ -139,6 +142,35 @@ byte  18..19 dropped_events  uint16, saturating count since boot
 `dropped_events` increasing means the host is not keeping up or the link
 stalled; the HUD can surface it, but the snapshot itself already repairs the
 state.
+
+## `profiles` — 2 + 8 × count bytes
+
+Which host each BLE profile slot (`&bt BT_SEL n`) is bonded to, so a host can
+tell the user which slot is which machine. 42 bytes on ZEN (5 slots). That is
+longer than a minimum-MTU payload; it is read-only, so the host stack fetches
+the tail with Read Blob and no packing is needed.
+
+```
+byte 0   version   1 for this document
+byte 1   count     number of slots that follow
+byte 2+  slots     8 bytes each, in profile index order
+```
+
+Each slot:
+
+```
+0    flags      bit0 = open (no bond), bit1 = connected, bit2 = active profile
+1    addr_type  0 = public, 1 = random (Zephyr BT_ADDR_LE_*)
+2..7 addr       6 bytes, least significant byte first
+```
+
+The address is the bonded peer's **identity** address — the one the host shows
+as its own Bluetooth address, not a rotating private address. An open slot
+carries all zeroes.
+
+It is never notified. A host re-reads it whenever a `snapshot` arrives, which
+happens on every profile switch. A reader must ignore trailing bytes beyond
+`count` slots and refuse a `version` it does not know.
 
 ## Combo detection (host side)
 
