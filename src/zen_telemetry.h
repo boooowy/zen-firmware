@@ -81,6 +81,13 @@ struct zen_telemetry_sink {
     size_t (*max_payload)(void);
     /** True while a host is subscribed. Telemetry is discarded when false. */
     bool (*is_ready)(void);
+    /**
+     * True when the host being typed on can take events. Snapshots still go
+     * out when false; buffered events are discarded without spending a frame
+     * sequence number, so a host that comes back sees no false gap. Optional:
+     * NULL means always.
+     */
+    bool (*events_deliverable)(void);
     int (*send_events)(const uint8_t *data, size_t len);
     int (*send_snapshot)(const uint8_t *data, size_t len);
 };

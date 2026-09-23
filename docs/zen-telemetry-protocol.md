@@ -26,6 +26,22 @@ Input Monitoring permission on the host.
   than this characteristic simply does not have it.
 - Both CCC descriptors require an encrypted (bonded) link.
 
+### Which host receives what
+
+ZMK keeps every bonded host connected after a profile switch, so more than one
+host can be subscribed at once.
+
+- `snapshot` notifications go to **every** subscribed host. A Mac left behind
+  when the keyboard switches to a Windows PC still learns that it switched, and
+  to which profile.
+- `events` go **only to the active profile's host**, and only if it is
+  subscribed. Keystrokes made on one host never reach another. When the active
+  host is not listening the records are dropped without spending a
+  `frame_seq`, so a host that becomes active again sees no false gap.
+
+A host can tell it is not the one being typed on by comparing the snapshot's
+profile index with the `profiles` characteristic.
+
 Enabled by `CONFIG_ZEN_TELEMETRY=y` — see the `zen-telemetry` snippet and the
 `zen_right_trackball_pmw3610_central_telemetry` build in `build.yaml`.
 

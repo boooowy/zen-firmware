@@ -200,6 +200,17 @@ static void zen_tm_work_handler(struct k_work *work) {
         }
     }
 
+    /* Typing on a host that is not listening -- a Windows PC while a Mac is
+     * still connected on another profile. Drop the records before a frame
+     * sequence number is spent on them: a failed send here would queue a
+     * snapshot and retry every few ms for as long as the typing went on. */
+    if (s->events_deliverable != NULL && !s->events_deliverable()) {
+        k_spinlock_key_t key = k_spin_lock(&zen_tm_lock);
+        ring_buf_reset(&zen_tm_ring);
+        k_spin_unlock(&zen_tm_lock, key);
+        return;
+    }
+
     size_t max_payload = s->max_payload();
     max_payload = CLAMP(max_payload, ZEN_TM_MIN_PAYLOAD, ZEN_TM_MAX_PAYLOAD);
 

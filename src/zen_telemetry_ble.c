@@ -127,7 +127,9 @@ BT_GATT_SERVICE_DEFINE(
 #define ZEN_TM_SNAPSHOT_ATTR (&zen_telemetry_svc.attrs[4])
 
 static bool ble_is_ready(void) {
-    /* Kept cheap: this runs on every key event, from the ZMK listener. */
+    /* Kept cheap: this runs on every key event, from the ZMK listener. True
+     * while any host is subscribed, which may not be the one being typed on;
+     * `ble_events_deliverable` makes that distinction off the listener. */
     return atomic_get(&events_subscribed) != 0;
 }
 
@@ -146,34 +148,83 @@ static size_t ble_max_payload(void) {
     return payload;
 }
 
-static int ble_notify(const struct bt_gatt_attr *attr, const uint8_t *data, size_t len) {
+static bool is_connected(struct bt_conn *conn) {
+    struct bt_conn_info info;
+    return bt_conn_get_info(conn, &info) == 0 && info.state == BT_CONN_STATE_CONNECTED;
+}
+
+/* Key events go to the host being typed on and nowhere else: another bonded
+ * host that is still connected learns where the keyboard went from the
+ * snapshot, never what is being typed there. Not in `is_ready` because it
+ * costs a connection lookup, and that runs on every key event. */
+static bool ble_events_deliverable(void) {
+    struct bt_conn *conn = zmk_ble_active_profile_conn();
+    if (conn == NULL) {
+        return false;
+    }
+
+    bool deliverable = is_connected(conn) &&
+                       bt_gatt_is_subscribed(conn, ZEN_TM_EVENTS_ATTR, BT_GATT_CCC_NOTIFY);
+    bt_conn_unref(conn);
+
+    return deliverable;
+}
+
+static int ble_send_events(const uint8_t *data, size_t len) {
     struct bt_conn *conn = zmk_ble_active_profile_conn();
     if (conn == NULL) {
         return -ENOTCONN;
     }
 
-    int err = bt_gatt_notify(conn, attr, data, len);
+    int err = bt_gatt_notify(conn, ZEN_TM_EVENTS_ATTR, data, len);
     bt_conn_unref(conn);
 
     return err;
 }
 
-static int ble_send_events(const uint8_t *data, size_t len) {
-    return ble_notify(ZEN_TM_EVENTS_ATTR, data, len);
+struct snapshot_send {
+    const uint8_t *data;
+    size_t len;
+    int err;
+};
+
+static void notify_snapshot(struct bt_conn *conn, void *user_data) {
+    struct snapshot_send *send = user_data;
+
+    /* Skips the split peripheral link, where we are the GATT client, and any
+     * host that has not subscribed -- a Windows PC, say. */
+    if (!is_connected(conn) ||
+        !bt_gatt_is_subscribed(conn, ZEN_TM_SNAPSHOT_ATTR, BT_GATT_CCC_NOTIFY)) {
+        return;
+    }
+
+    int err = bt_gatt_notify(conn, ZEN_TM_SNAPSHOT_ATTR, send->data, send->len);
+    if (err < 0 && send->err == 0) {
+        send->err = err;
+    }
 }
 
+/* To every subscribed host, not only the active profile. ZMK keeps the other
+ * profiles connected after a switch, so a Mac left behind when the keyboard
+ * moves to a Windows PC still hears that it moved -- and to which profile. A
+ * failure makes the core retry, which resends to everyone; a duplicate
+ * snapshot is harmless. */
 static int ble_send_snapshot(const uint8_t *data, size_t len) {
     if (atomic_get(&snapshot_subscribed) == 0) {
         /* The host reads the snapshot characteristic instead; nothing to push. */
         return 0;
     }
 
-    return ble_notify(ZEN_TM_SNAPSHOT_ATTR, data, len);
+    struct snapshot_send send = {.data = data, .len = len, .err = 0};
+    bt_conn_foreach(BT_CONN_TYPE_LE, notify_snapshot, &send);
+
+    return send.err;
 }
 
 static const struct zen_telemetry_sink ble_sink = {
     .max_payload = ble_max_payload,
     .is_ready = ble_is_ready,
+    .events_deliverable = ble_events_deliverable,
     .send_events = ble_send_events,
     .send_snapshot = ble_send_snapshot,
 };
