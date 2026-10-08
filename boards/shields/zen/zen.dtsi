@@ -38,13 +38,13 @@
 
         /* 最後の打鍵からの経過時間で必要な移動量を三段階に切り替える (cpi=800)
              0-400ms    : 距離に関係なく入らない          (require-prior-idle-ms)
-             400-1500ms : 96カウント ≒ 3.0mm  が必要      (activation-distance-after-typing)
+             400-1500ms : 48カウント ≒ 1.5mm  が必要      (activation-distance-after-typing)
              1500ms-    :  8カウント ≒ 0.25mm で入る      (activation-distance)
-           打鍵中の微振動は 3mm に届かず、打鍵していないときは触れば入る。
+           打鍵中の微振動は 1.5mm に届かず、打鍵していないときは触れば入る。
            入りやすくても実害がないのは excluded-positions が打鍵で即解除するため */
         require-prior-idle-ms = <400>;
         activation-distance = <8>;
-        activation-distance-after-typing = <96>;
+        activation-distance-after-typing = <48>;
         typing-window-ms = <1500>;
 
         /* ここに列挙した位置「以外」を押すとマウスレイヤーが即解除される。
