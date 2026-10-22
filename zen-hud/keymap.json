@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "2d80745fd1ded9f165d0f79f83f33a5288ccb3cf",
+  "source_commit": "7396346a4218d6342e028d37858fdc6556f0e02f",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -2511,11 +2511,11 @@
           "action": "trans"
         },
         {
-          "tap": "▽",
+          "tap": "LEFT ALT",
           "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
+          "type": null,
+          "binding": "&kp LEFT_ALT",
+          "action": "kp"
         },
         {
           "tap": "",
