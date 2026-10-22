@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "54dadd4fcbf41f8ff43cb2a57a0a2f062c44f87e",
+  "source_commit": "f9eb99613fe461cfbe15424d71363bb58e67bbe2",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -2262,8 +2262,8 @@
           "tap": "7",
           "hold": null,
           "type": null,
-          "binding": "&kp N7",
-          "action": "kp"
+          "binding": "&cmd_u7",
+          "action": "cmd_u7"
         },
         {
           "tap": "8",
