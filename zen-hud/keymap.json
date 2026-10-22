@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "ed80687bcca3dafa8fd784e237467be92bf83f9a",
+  "source_commit": "6f3d4571a6b1b9c35d73989ec21d50a3c2e47a48",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -2217,74 +2217,74 @@
           "action": "trans"
         },
         {
-          "tap": "1",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&kp NUMBER_1",
-          "action": "kp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
-          "tap": "2",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&kp NUMBER_2",
-          "action": "kp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
-          "tap": "3",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&kp NUMBER_3",
-          "action": "kp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
-          "tap": "4",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&kp NUMBER_4",
-          "action": "kp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
-          "tap": "5",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&kp N5",
-          "action": "kp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
-          "tap": "6",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&kp NUMBER_6",
-          "action": "kp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
-          "tap": "7",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&kp N7",
-          "action": "kp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
-          "tap": "8",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&kp N8",
-          "action": "kp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
-          "tap": "9",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&kp N9",
-          "action": "kp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
-          "tap": "0",
+          "tap": "▽",
           "hold": null,
-          "type": null,
-          "binding": "&kp N0",
-          "action": "kp"
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
           "tap": "▽",
