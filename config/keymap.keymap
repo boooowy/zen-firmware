@@ -14,6 +14,20 @@
             quick-tap-ms = <200>;
             bindings = <&mo>, <&kp>;
         };
+
+        td_u7: tap_dance_u7 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LG(LS(U))>, <&kp LG(LS(N7))>;
+        };
+
+        cmd_u7: cmd_morph_u7 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp N7>, <&td_u7>;
+            mods = <(MOD_LGUI|MOD_RGUI)>;
+        };
     };
 
     macros {
@@ -119,7 +133,7 @@
 
         layer_5 {
             bindings = <
-&trans            &kp NUMBER_1    &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5              &kp NUMBER_6          &kp N7          &kp N8        &kp N9           &kp N9  &kp N0
+&trans            &kp NUMBER_1    &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5              &kp NUMBER_6          &cmd_u7         &kp N8        &kp N9           &kp N9  &kp N0
 &kp LCTRL         &kp LEFT_SHIFT  &trans        &trans        &trans        &trans              &kp LEFT_ARROW        &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans  &trans
 &kp LEFT_SHIFT    &trans          &trans        &trans        &trans        &trans              &trans                &trans          &trans        &trans           &trans  &trans  &trans  &trans
 &kp LS(LEFT_ALT)  &trans          &trans        &trans        &trans        &kp LG(LEFT_SHIFT)  &kp LS(LA(LEFT_ALT))  &trans          &trans        &trans           &trans  &trans
