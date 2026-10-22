@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "85d418b4de0f283b5ee7b10331d97281bab1dc71",
+  "source_commit": "54dadd4fcbf41f8ff43cb2a57a0a2f062c44f87e",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -724,11 +724,11 @@
         },
         {
           "tap": "ESC",
-          "hold": "5",
+          "hold": "10",
           "type": null,
-          "binding": "&lt 5 ESC",
+          "binding": "&lt 10 ESC",
           "action": "lt",
-          "layer": 5
+          "layer": 10
         },
         {
           "tap": "SPACE",
@@ -2520,14 +2520,14 @@
         {
           "tap": "Sft+Alt+LEFT ALT",
           "hold": null,
-          "type": "held",
+          "type": null,
           "binding": "&kp LS(LA(LEFT_ALT))",
           "action": "kp"
         },
         {
-          "tap": "▽",
+          "tap": "",
           "hold": null,
-          "type": "trans",
+          "type": "held",
           "binding": "&trans",
           "action": "trans"
         },
@@ -4309,9 +4309,9 @@
           "action": "trans"
         },
         {
-          "tap": "▽",
+          "tap": "",
           "hold": null,
-          "type": "trans",
+          "type": "held",
           "binding": "&trans",
           "action": "trans"
         },
