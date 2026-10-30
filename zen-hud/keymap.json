@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "757765dead3190bc7d7c6aa1fd5612e5261f332d",
+  "source_commit": "65c221a85668e4fec5f44dc453d7004896dfd7ff",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -1078,12 +1078,11 @@
           "action": "trans"
         },
         {
-          "tap": "1",
-          "hold": "toggle",
-          "type": null,
-          "binding": "&tog 1",
-          "action": "tog",
-          "layer": 1
+          "tap": "▽",
+          "hold": null,
+          "type": "trans",
+          "binding": "&trans",
+          "action": "trans"
         },
         {
           "tap": "1",
