@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "65c221a85668e4fec5f44dc453d7004896dfd7ff",
+  "source_commit": "cd68da76b0d8f378b522ea4271a4e1168d6cdb10",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -1086,10 +1086,10 @@
         },
         {
           "tap": "1",
-          "hold": "toggle",
+          "hold": null,
           "type": null,
-          "binding": "&tog 1",
-          "action": "tog",
+          "binding": "&mo 1",
+          "action": "mo",
           "layer": 1
         },
         {
