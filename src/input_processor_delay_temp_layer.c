@@ -40,11 +40,16 @@ struct delay_temp_layer_config {
     const uint16_t *exit_positions;
     size_t num_exit_positions;
     uint16_t exit_after_release_ms;
+    const uint16_t *hold_positions;
+    size_t num_hold_positions;
 };
 
 struct delay_temp_layer_state {
     uint8_t toggle_layer;
     bool is_active;
+    /* Number of hold-positions currently pressed. While non-zero the layer is
+     * never deactivated by this processor. */
+    uint8_t held_keys;
     int64_t last_tapped_timestamp;
     /* Current movement burst */
     int64_t burst_start_ms;
@@ -122,7 +127,9 @@ static void layer_action_work_cb(struct k_work *work) {
 
     while (k_msgq_get(&delay_temp_layer_action_msgq, &action, K_MSEC(10)) >= 0) {
         if (!action.activate) {
-            if (zmk_keymap_layer_active(action.layer)) {
+            if (data->state.held_keys > 0) {
+                LOG_DBG("Hold key pressed, keeping layer %d", action.layer);
+            } else if (zmk_keymap_layer_active(action.layer)) {
                 update_layer_state(&data->state, false);
             }
         } else {
@@ -172,8 +179,10 @@ static int handle_position_state_changed(const struct device *dev, const zmk_eve
     const bool is_exit_position =
         cfg->exit_after_release_ms > 0 &&
         position_in_list(cfg->exit_positions, cfg->num_exit_positions, ev->position);
+    const bool is_hold_position =
+        position_in_list(cfg->hold_positions, cfg->num_hold_positions, ev->position);
 
-    if (!ev->state && !is_exit_position) {
+    if (!ev->state && !is_exit_position && !is_hold_position) {
         return ZMK_EV_EVENT_BUBBLE;
     }
 
@@ -185,7 +194,28 @@ static int handle_position_state_changed(const struct device *dev, const zmk_eve
 
     struct k_work_delayable *disable_work = &layer_disable_works[data->state.toggle_layer];
 
-    if (!ev->state) {
+    if (is_hold_position) {
+        /* Hold key: the layer stays on for as long as it is held, no matter how
+         * long the pointer rests or which other keys are pressed, and goes off
+         * the moment it is released. */
+        if (ev->state) {
+            if (data->state.held_keys < UINT8_MAX) {
+                data->state.held_keys++;
+            }
+            if (data->state.is_active) {
+                k_work_cancel_delayable(disable_work);
+            }
+        } else {
+            if (data->state.held_keys > 0) {
+                data->state.held_keys--;
+            }
+            if (data->state.held_keys == 0 && data->state.is_active) {
+                LOG_DBG("Hold key released, deactivating layer");
+                k_work_cancel_delayable(disable_work);
+                update_layer_state(&data->state, false);
+            }
+        }
+    } else if (!ev->state) {
         /* Releasing a click: leave the layer shortly unless the pointer moves or
          * the click is pressed again (double click) before then. */
         if (data->state.is_active) {
@@ -196,8 +226,12 @@ static int handle_position_state_changed(const struct device *dev, const zmk_eve
         k_work_cancel_delayable(disable_work);
     } else if (data->state.is_active && cfg->excluded_positions && cfg->num_positions > 0) {
         if (!position_in_list(cfg->excluded_positions, cfg->num_positions, ev->position)) {
-            LOG_DBG("Position not excluded, deactivating layer");
-            update_layer_state(&data->state, false);
+            if (data->state.held_keys > 0) {
+                LOG_DBG("Position not excluded, but hold key pressed, keeping layer");
+            } else {
+                LOG_DBG("Position not excluded, deactivating layer");
+                update_layer_state(&data->state, false);
+            }
         }
     }
 
@@ -344,7 +378,8 @@ static const struct zmk_input_processor_driver_api delay_temp_layer_driver_api =
 /* Event Listeners Conditions */
 #define NEEDS_POSITION_HANDLERS(n, ...)                                                            \
     (DT_INST_PROP_HAS_IDX(n, excluded_positions, 0) ||                                             \
-     DT_INST_PROP_HAS_IDX(n, exit_after_release_positions, 0))
+     DT_INST_PROP_HAS_IDX(n, exit_after_release_positions, 0) ||                                   \
+     DT_INST_PROP_HAS_IDX(n, hold_positions, 0))
 #define NEEDS_KEYCODE_HANDLERS(n, ...)                                                             \
     ((DT_INST_PROP_OR(n, require_prior_idle_ms, 0) > 0) ||                                         \
      (DT_INST_PROP_OR(n, typing_window_ms, 0) > 0))
@@ -367,6 +402,7 @@ ZMK_SUBSCRIPTION(processor_delay_temp_layer, zmk_keycode_state_changed);
     static struct delay_temp_layer_data processor_delay_temp_layer_data_##n = {};                  \
     static const uint16_t excluded_positions_##n[] = DT_INST_PROP(n, excluded_positions);          \
     static const uint16_t exit_positions_##n[] = DT_INST_PROP(n, exit_after_release_positions);    \
+    static const uint16_t hold_positions_##n[] = DT_INST_PROP(n, hold_positions);                  \
     static const struct delay_temp_layer_config processor_delay_temp_layer_config_##n = {          \
         .require_prior_idle_ms = DT_INST_PROP_OR(n, require_prior_idle_ms, 0),                     \
         .activation_delay_ms = DT_INST_PROP_OR(n, activation_delay_ms, 0),                         \
@@ -380,6 +416,8 @@ ZMK_SUBSCRIPTION(processor_delay_temp_layer, zmk_keycode_state_changed);
         .exit_positions = exit_positions_##n,                                                      \
         .num_exit_positions = DT_INST_PROP_LEN(n, exit_after_release_positions),                   \
         .exit_after_release_ms = DT_INST_PROP_OR(n, exit_after_release_ms, 0),                     \
+        .hold_positions = hold_positions_##n,                                                      \
+        .num_hold_positions = DT_INST_PROP_LEN(n, hold_positions),                                 \
     };                                                                                             \
     DEVICE_DT_INST_DEFINE(n, delay_temp_layer_init, NULL, &processor_delay_temp_layer_data_##n,    \
                           &processor_delay_temp_layer_config_##n, POST_KERNEL,                     \

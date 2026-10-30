@@ -51,10 +51,9 @@
            = マウス操作中に押したいキーのホワイトリスト。
            レイヤー1の割り当てを変えたら必ずここも更新すること。
            position 0 (Tab) は意図的に含めず、Tabを送信しながらレイヤー1を解除する。
-           position 44 (左キーボード右下の lt 5/ESC) は、レイヤー1側の &tog 1 で
-           入力を送信せずにレイヤー1を解除する */
+           position 44 (左キーボード右下の lt 10/ESC) は hold-positions も参照 */
         excluded-positions = <
-            44                   /* 無入力のレイヤー1解除キー */
+            44                   /* レイヤー1キープキー (hold-positions) */
             3  4                 /* E R  -> Gui+Shift+[ ] タブ切替 */
             7  8  9              /* U I O -> LCLK / mo 4 / RCLK */
             15 16 17             /* D F G -> mo 4 / MB1 / MB2 */
@@ -71,6 +70,13 @@
            ここに載せる位置は excluded-positions にも残すこと (外すと押した瞬間に文字が出る) */
         exit-after-release-positions = <7 16 19>;  /* U F J -> LCLK / MB1 / MB1 */
         exit-after-release-ms = <100>;
+
+        /* 押している間はレイヤー1をキープし、離した瞬間にレイヤー0へ戻すキー。
+           押下中はタイムアウト・クリック離し・他キー打鍵のどれでもレイヤー1を落とさない。
+           キーマップ側のレイヤー1では同じ位置に &mo 1 を置き、離したときの解除を
+           キーマップとこのプロセッサの両方で保証する。
+           ここに載せる位置は excluded-positions にも残すこと */
+        hold-positions = <44>;  /* 左キーボード右下 (レイヤー0では lt 10/ESC) */
     };
 
     kscan0: kscan {

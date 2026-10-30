@@ -97,6 +97,18 @@ properties:
       Deactivation timeout in milliseconds applied after releasing one of
       exit-after-release-positions. 0 disables the behaviour.
 
+  hold-positions:
+    type: array
+    required: false
+    default: []
+    description: |
+      Key positions that keep the layer on for as long as they are held: while
+      one of them is pressed the layer is not deactivated by the timeout, by a
+      click release or by pressing a key outside excluded-positions. Releasing
+      the last held one deactivates the layer immediately. Pair each of them
+      with a `&mo <layer>` binding on the layer itself so that the keymap side
+      agrees with the processor.
+
 input-processor-cells:
   - param1
   - param2
