@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "cd68da76b0d8f378b522ea4271a4e1168d6cdb10",
+  "source_commit": "0a59997d28fa667b2aebefee939eac620290dbc3",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -724,11 +724,10 @@
         },
         {
           "tap": "ESC",
-          "hold": "10",
+          "hold": "LEFT SHIFT",
           "type": null,
-          "binding": "&lt 10 ESC",
-          "action": "lt",
-          "layer": 10
+          "binding": "&mt LEFT_SHIFT ESC",
+          "action": "mt"
         },
         {
           "tap": "SPACE",
@@ -2385,11 +2384,39 @@
           "action": "kp"
         },
         {
-          "tap": "▽",
+          "tap": "F1",
           "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
+          "type": null,
+          "binding": "&kp F1",
+          "action": "kp"
+        },
+        {
+          "tap": "F2",
+          "hold": null,
+          "type": null,
+          "binding": "&kp F2",
+          "action": "kp"
+        },
+        {
+          "tap": "F3",
+          "hold": null,
+          "type": null,
+          "binding": "&kp F3",
+          "action": "kp"
+        },
+        {
+          "tap": "F4",
+          "hold": null,
+          "type": null,
+          "binding": "&kp F4",
+          "action": "kp"
+        },
+        {
+          "tap": "F5",
+          "hold": null,
+          "type": null,
+          "binding": "&kp F5",
+          "action": "kp"
         },
         {
           "tap": "▽",
@@ -2406,67 +2433,39 @@
           "action": "trans"
         },
         {
-          "tap": "▽",
+          "tap": "F6",
           "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
+          "type": null,
+          "binding": "&kp F6",
+          "action": "kp"
         },
         {
-          "tap": "▽",
+          "tap": "F7",
           "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
+          "type": null,
+          "binding": "&kp F7",
+          "action": "kp"
         },
         {
-          "tap": "▽",
+          "tap": "F8",
           "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
+          "type": null,
+          "binding": "&kp F8",
+          "action": "kp"
         },
         {
-          "tap": "▽",
+          "tap": "F9",
           "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
+          "type": null,
+          "binding": "&kp F9",
+          "action": "kp"
         },
         {
-          "tap": "▽",
+          "tap": "F10",
           "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
-        },
-        {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
-        },
-        {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
-        },
-        {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
-        },
-        {
-          "tap": "▽",
-          "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
+          "type": null,
+          "binding": "&kp F10",
+          "action": "kp"
         },
         {
           "tap": "▽",
@@ -4309,9 +4308,9 @@
           "action": "trans"
         },
         {
-          "tap": "",
+          "tap": "▽",
           "hold": null,
-          "type": "held",
+          "type": "trans",
           "binding": "&trans",
           "action": "trans"
         },
