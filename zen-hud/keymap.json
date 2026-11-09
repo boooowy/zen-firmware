@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "820ed34a27935257a4dd44ca5d2c4036934bd48f",
+  "source_commit": "a64db1f9a284e7fb5d579ea8ba2e6d684a40ea2e",
   "keyboard": "ZEN",
   "geometry": [
     {
@@ -2503,11 +2503,11 @@
           "action": "trans"
         },
         {
-          "tap": "▽",
+          "tap": "Gui+Sft+LEFT ALT",
           "hold": null,
-          "type": "trans",
-          "binding": "&trans",
-          "action": "trans"
+          "type": null,
+          "binding": "&kp LG(LS(LEFT_ALT))",
+          "action": "kp"
         },
         {
           "tap": "Gui+LEFT SHIFT",
