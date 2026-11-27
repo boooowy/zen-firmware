@@ -1,0 +1,13 @@
+# Copyright (c) 2026 E24-GH
+# SPDX-License-Identifier: MIT
+
+description: |
+  A macro whose steps can be rewritten while the keyboard is running.
+
+  Unlike zmk,behavior-macro, which compiles its bindings in from devicetree,
+  this one reads them from a slot the config bridge can write. The parameter
+  is the slot number.
+
+compatible: "zen,behavior-macro"
+
+include: one_param.yaml

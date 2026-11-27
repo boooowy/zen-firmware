@@ -1,5 +1,8 @@
 name: Build ZMK firmware
 
+# Every push and pull request, with no branch filter: this repo is forked by
+# buyers, and a fork's default branch is whatever they named it. A filter here
+# would leave them pushing a keymap and waiting for a build that never starts.
 on:
   push:
   pull_request:

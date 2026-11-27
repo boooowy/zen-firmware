@@ -1,0 +1,3 @@
+name: zen-lcd-status
+append:
+  EXTRA_CONF_FILE: zen-lcd-status.conf

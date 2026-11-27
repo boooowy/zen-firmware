@@ -6,7 +6,7 @@
 
 / {
     behaviors {
-        lt_rep: layer_tap_repeatable {
+        lt_rep: lt_rep {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";

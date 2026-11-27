@@ -14,5 +14,21 @@ config INPUT
 
 config ZMK_MOUSE
     default y
- 
+
+# Lets zen_config_serial_bridge mutate/persist keymap bindings via the plain
+# ZMK core keymap APIs, independent of ZMK Studio/its RPC transport.
+config ZMK_BEHAVIOR_LOCAL_IDS
+    default y
+
+config ZMK_KEYMAP_SETTINGS_STORAGE
+    default y
+
+# ZMK_KEYMAP_SETTINGS_STORAGE's save/discard path calls
+# load_stock_keymap_layer_ordering(), which only exists behind this option.
+# ZMK itself doesn't declare that dependency in Kconfig (it normally comes
+# along for free via ZMK_STUDIO_RPC's `select`), so it must be set explicitly
+# now that CONFIG_ZMK_STUDIO is disabled below.
+config ZMK_KEYMAP_LAYER_REORDERING
+    default y
+
 endif

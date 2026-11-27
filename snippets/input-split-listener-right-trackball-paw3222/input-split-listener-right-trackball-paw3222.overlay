@@ -1,0 +1,44 @@
+#include <input/processors.dtsi>
+#include <dt-bindings/zmk/input_transform.h>
+
+/*
+ * The right-hand PAW3222 reaching the LEFT half, which is the central on an
+ * LCD build. See the pmw3610 snippet beside this one for why the chain has to
+ * live here rather than on the peripheral.
+ *
+ * This sensor resolves differently from the pmw3610 on a shipping build. The
+ * input-trackball-paw3222 snippet overrides only the scroller, so the base
+ * transform stays the X_INVERT | Y_INVERT that zen_right.overlay sets, and the
+ * scroller carries NO transform of its own -- the base one is enough, because
+ * process-next runs it afterwards. Adding a Y_INVERT here inverts scrolling.
+ */
+
+/ {
+    split_inputs {
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        right_trackball_paw3222_split: right_trackball_paw3222_split@0 {
+            compatible = "zmk,input-split";
+            reg = <0>;
+        };
+    };
+
+    right_trackball_paw3222_listener: right_trackball_paw3222_listener {
+        compatible = "zmk,input-listener";
+        device = <&right_trackball_paw3222_split>;
+        status = "okay";
+        input-processors =
+            <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
+            <&zen_pointer_live_scale>,
+            <&zen_auto_mouse>;
+
+        scroller {
+            layers = <4>;
+            input-processors =
+                <&zip_xy_to_scroll_mapper>,
+                <&scroll_scaler 1 28>;
+            process-next;
+        };
+    };
+};

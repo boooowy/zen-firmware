@@ -1,0 +1,3 @@
+name: zen-lcd-dark
+append:
+  EXTRA_CONF_FILE: zen-lcd-dark.conf

@@ -1,0 +1,3 @@
+name: split-peripheral
+append:
+  EXTRA_CONF_FILE: split-peripheral.conf

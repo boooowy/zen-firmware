@@ -1,0 +1,10 @@
+# west workspace, created by `west init`/`west update` if you build locally.
+# Buyers build on GitHub Actions and never see these.
+/.venv/
+/.west/
+/build/
+/modules/
+/zmk/
+/zmk-*/
+/zephyr/*
+!/zephyr/module.yml

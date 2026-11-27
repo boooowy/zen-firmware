@@ -1,0 +1,22 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
+description: |
+  Input processor that holds a layer on while the pointing device is moving.
+
+  Same idea as zmk,input-processor-temp-layer, but the on/off switch, the
+  timeout and the "do not switch layers this soon after a keystroke" guard are
+  read from zen_pointer_settings on every event instead of being fixed in
+  devicetree, so the Configurator can change them on a running keyboard.
+
+  Which layer to hold is NOT runtime-adjustable -- it is a property of how the
+  keymap is laid out, not a preference -- so it stays here.
+
+compatible: "zen,input-processor-auto-mouse"
+
+include: ip_zero_param.yaml
+
+properties:
+  layer:
+    type: int
+    required: true
+    description: Index of the layer to hold on while the pointer is moving.
