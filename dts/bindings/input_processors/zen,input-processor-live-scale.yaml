@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
+description: |
+  Input processor that scales/inverts REL_X, REL_Y, REL_WHEEL and REL_HWHEEL
+  events using a runtime-adjustable factor (see zen_pointer_settings), instead
+  of a devicetree-fixed ratio like zmk,input-processor-scaler. Intended to sit
+  at the end of an existing input-processors chain as an additional,
+  user-adjustable multiplier. Takes no reference-site arguments; each instance
+  is configured entirely via its own "channel" property.
+
+compatible: "zen,input-processor-live-scale"
+
+include: ip_zero_param.yaml
+
+properties:
+  channel:
+    type: int
+    required: true
+    enum:
+      - 0
+      - 1
+    description: |
+      0 (pointer channel): REL_X/REL_Y use the pointer scale, invert-x and
+      invert-y settings.
+      1 (scroll channel): REL_X/REL_Y use the scroll scale and invert-scroll
+      settings (for chains where X/Y motion is later remapped to scroll by a
+      code-mapper). REL_WHEEL/REL_HWHEEL always use the scroll scale and
+      invert-scroll settings, regardless of channel.

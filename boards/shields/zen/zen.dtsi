@@ -127,9 +127,56 @@
         track-remainders;
     };
 
+    /* track-remainders is not optional here. Without it the listener hands
+       the processor a NULL remainder and apply_scale() throws the fraction
+       away on every event: at any setting below 100%, a stream of 1-unit
+       events scales to 0 and nothing comes out at all. Scrolling only moved
+       when the scaler upstream happened to burst several units into one
+       event, which is what made a low scroll setting feel like a dead
+       trackball rather than a slow one. */
+    /omit-if-no-ref/ zen_pointer_live_scale: zen_pointer_live_scale {
+        compatible = "zen,input-processor-live-scale";
+        #input-processor-cells = <0>;
+        channel = <0>;
+        track-remainders;
+    };
+
+    /* No scroll-channel instance here on purpose. Once a code-mapper has
+       turned X/Y into WHEEL/HWHEEL, the pointer instance in the base chain
+       scales those with the scroll setting anyway -- channel 1 only differs
+       before the mapper. Putting one after the mapper as well applied the
+       scroll setting twice, which is what used to happen on the pmw3610 and
+       trackpad builds. Add one only if a chain ever needs scroll scaling
+       applied to raw X/Y. */
+
+    /* Replaces zip_temp_layer: same job, but on/off, timeout and the
+       after-a-keystroke guard come from zen_pointer_settings at runtime so the
+       Configurator can change them. Layer 1 is the mouse layer. */
+    /omit-if-no-ref/ zen_auto_mouse: zen_auto_mouse {
+        compatible = "zen,input-processor-auto-mouse";
+        #input-processor-cells = <0>;
+        layer = <1>;
+    };
+
     pointing_listener: pointing_listener {
         compatible = "zmk,input-listener";
         status = "disabled";
+    };
+
+    behaviors {
+        /* Plays one of the editable macro slots; the parameter is the slot
+           number. Deliberately NOT /omit-if-no-ref/: nothing in the keymap
+           refers to it, because a slot is bound at runtime -- by the
+           Configurator, or by a runtime combo -- so omitting unreferenced
+           nodes would delete the only thing that can play one.
+
+           The node costs nothing where CONFIG_ZEN_RUNTIME_MACRO is off (a
+           split peripheral, where the Configurator bridge is off too): the
+           driver is not compiled, so no device is instantiated. */
+        zen_macro: zen_macro {
+            compatible = "zen,behavior-macro";
+            #binding-cells = <1>;
+        };
     };
 
     vbatt: vbatt {

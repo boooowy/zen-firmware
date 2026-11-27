@@ -566,6 +566,12 @@ static int pmw3610_report_data(const struct device *dev) {
     // fetch report value
     int16_t rx = (int16_t)CLAMP(data->dx, INT16_MIN, INT16_MAX);
     int16_t ry = (int16_t)CLAMP(data->dy, INT16_MIN, INT16_MAX);
+
+    // Square the ball up with the user's hand before anything downstream sees
+    // it. This has to happen here rather than in an input processor: rotation
+    // mixes X into Y, and a processor is handed one input_event at a time.
+    zen_pointer_rotate(&rx, &ry, &data->rotate);
+
     bool have_x = rx != 0;
     bool have_y = ry != 0;
 

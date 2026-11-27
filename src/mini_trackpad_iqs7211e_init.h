@@ -3,7 +3,7 @@
 * It can be changed from the GUI or edited here.
 * File:   IQS7211E_init.h
 * Author: Azoteq
-*/
+*/ 
 
 #pragma once
 

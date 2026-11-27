@@ -12,6 +12,8 @@
 #include <zephyr/drivers/gpio.h>
 #include <zephyr/drivers/sensor.h>
 
+#include "zen_pointer_rotate.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -45,6 +47,10 @@ struct pixart_data {
     // middle leaves the first one writing with the clock off or reading the
     // wrong page, which comes back as 0xff.
     struct k_mutex               lock;
+
+    // Carry for the user-configurable trackball rotation, applied just before
+    // reporting because rotation needs both axes at once.
+    struct zen_pointer_rotate_state rotate;
 };
 
 // device config data structure

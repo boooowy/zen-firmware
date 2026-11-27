@@ -5,7 +5,8 @@
 &pointing_listener {
     input-processors =
         <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
-        <&zip_delay_temp_layer 1 1000>;
+        <&zip_delay_temp_layer 1 1000>,
+        <&zen_pointer_live_scale>;
 
     scroller {
         layers = <4>;

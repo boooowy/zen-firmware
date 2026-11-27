@@ -1,0 +1,63 @@
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/gpio/nordic-nrf-gpio.h>
+
+/*
+ * ZEN J2 / LCD Adapter mapping:
+ *   VCC       P0.08
+ *   SCK       P0.18
+ *   SI/MOSI   P0.16
+ *   X/EXTCOM  P0.19
+ *   CS        P0.20 (active high for Sharp Memory LCD)
+ */
+
+&gpio0 {
+    lcd_power_hog: lcd_power_hog {
+        gpio-hog;
+        gpios = <8 (GPIO_ACTIVE_HIGH | NRF_GPIO_DRIVE_H0H1)>;
+        output-high;
+        line-name = "ZEN LCD power";
+    };
+};
+
+&pinctrl {
+    lcd_spi0_default: lcd_spi0_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 18)>,
+                    <NRF_PSEL(SPIM_MOSI, 0, 16)>;
+        };
+    };
+
+    lcd_spi0_sleep: lcd_spi0_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 18)>,
+                    <NRF_PSEL(SPIM_MOSI, 0, 16)>;
+            low-power-enable;
+        };
+    };
+};
+
+nice_view_spi: &spi0 {
+    status = "okay";
+    compatible = "nordic,nrf-spim";
+    pinctrl-0 = <&lcd_spi0_default>;
+    pinctrl-1 = <&lcd_spi0_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&gpio0 20 GPIO_ACTIVE_HIGH>;
+
+    ls011b7dh03: ls0xx@0 {
+        compatible = "sharp,ls0xx";
+        reg = <0>;
+        spi-max-frequency = <1000000>;
+        width = <160>;
+        height = <68>;
+        /* LS011B7DH03 requires a 57-70 Hz LC polarity inversion signal. */
+        extcomin-gpios = <&gpio0 19 GPIO_ACTIVE_HIGH>;
+        extcomin-frequency = <60>;
+    };
+};
+
+/ {
+    chosen {
+        zephyr,display = &ls011b7dh03;
+    };
+};

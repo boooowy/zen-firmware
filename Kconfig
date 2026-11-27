@@ -5,6 +5,18 @@
 # SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
 #
 
+config ZEN_LCD_STATUS_SCREEN
+  bool "ZEN LS011B7DH03 custom status screen"
+  depends on ZMK_DISPLAY
+  help
+    Show the ZEN boot logo and keyboard status dashboard on the left Central LCD.
+
+config ZEN_LCD_DOT_STATUS
+  bool "Use the experimental ZEN dot font on the status dashboard"
+  depends on ZEN_LCD_STATUS_SCREEN
+  help
+    Render the four-line status dashboard with the compact original ZEN dot font.
+
 menuconfig PMW3610_ALT
   bool "PMW3610 mouse optical sensor"
   select SPI
@@ -268,3 +280,97 @@ module-str = ZEN_TELEMETRY
 source "${ZEPHYR_BASE}/subsys/logging/Kconfig.template.log_config"
 
 endif # ZEN_TELEMETRY
+
+config ZEN_CONFIG_BRIDGE
+    bool "ZEN Configurator serial bridge"
+    default y
+    depends on ZMK_USB
+    depends on !ZMK_STUDIO
+    help
+      The USB serial endpoint the ZEN Configurator talks to: pointer
+      settings, the keymap, status and Bluetooth profiles.
+
+      It cannot run alongside ZMK Studio. Both listen on the UART that
+      `zmk,studio-rpc-uart` names, and two threads polling the same port
+      take each other's bytes, so neither answers reliably. That is why
+      this depends on !ZMK_STUDIO rather than merely warning about it:
+      turning Studio on in a shield .conf is enough to turn the bridge
+      off, and the build is coherent either way.
+
+      Only where ZMK owns the USB stack. On a split peripheral
+      CONFIG_ZMK_USB is off, the CDC-ACM port exists but nothing manages
+      it, and polling it there stops the half waking from deep sleep.
+
+config ZEN_RUNTIME_COMBO
+    bool "Editable combo slots"
+    default y
+    depends on ZEN_CONFIG_BRIDGE
+    help
+      Adds combo slots that can be rewritten while the keyboard is running,
+      so combos no longer require a fork and a GitHub Actions build.
+
+      Only where the Configurator bridge runs, which is the split central;
+      a peripheral has no combo matcher of its own to feed.
+
+      Requires a `combos` node in the keymap. ZMK compiles the whole combo
+      subsystem out when there are none, and this cannot bring it back --
+      config/keymap.keymap declares one, which is what keeps it in.
+
+      Turning this off restores the stock behaviour exactly: app/src/combo.c
+      then preprocesses to what it was before the ZEN patch, const array
+      included.
+
+if ZEN_RUNTIME_COMBO
+
+config ZEN_RUNTIME_COMBO_SLOTS
+    int "Editable combo slots"
+    range 1 32
+    default 8
+    help
+      Slots on top of the combos the keymap declares. Those stay read-only.
+
+config ZEN_RUNTIME_COMBO_MAX_KEYS
+    int "Maximum keys in an editable combo"
+    range 2 8
+    default 4
+    help
+      ZMK sizes its combo arrays from the longest combo in the keymap, so a
+      keymap holding only 2-key combos could otherwise never gain a 3-key
+      one. This raises that floor, at the cost of a larger combo table.
+
+endif
+
+config ZEN_RUNTIME_MACRO
+    bool "Editable macro slots"
+    default y
+    depends on ZEN_CONFIG_BRIDGE
+    help
+      Adds macro slots that can be rewritten while the keyboard is running.
+      A slot is played by the zen,behavior-macro behavior, whose parameter is
+      the slot number, so a runtime combo can trigger one without touching
+      the keymap.
+
+      The behavior node is declared in zen.dtsi. With this off the driver is
+      not compiled and the node simply instantiates nothing, which is how a
+      split peripheral builds.
+
+      Playback goes through ZMK's own behavior queue, which copies each step
+      as it is queued -- so editing a slot mid-playback cannot derail one
+      that is already running.
+
+if ZEN_RUNTIME_MACRO
+
+config ZEN_RUNTIME_MACRO_SLOTS
+    int "Editable macro slots"
+    range 1 8
+    default 4
+
+config ZEN_RUNTIME_MACRO_STEPS
+    int "Maximum steps in one macro"
+    range 2 32
+    default 16
+    help
+      Each step costs 8 bytes per slot, and playing one costs up to two
+      entries in ZMK's behavior queue (CONFIG_ZMK_BEHAVIORS_QUEUE_SIZE).
+
+endif

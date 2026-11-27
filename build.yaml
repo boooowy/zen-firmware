@@ -17,14 +17,6 @@ include:
     artifact-name: zen_left_peripheral
   - board: bmp_boost
     shield: zen_left
-    snippet: "studio-rpc-usb-uart input-trackball-pmw3610 input-split-left-trackball-pmw3610"
-    artifact-name: zen_left_trackball_pmw3610_peripheral
-  - board: bmp_boost
-    shield: zen_left
-    snippet: "studio-rpc-usb-uart input-trackball-paw3222 input-split-left-trackball-paw3222"
-    artifact-name: zen_left_trackball_paw3222_peripheral
-  - board: bmp_boost
-    shield: zen_left
     snippet: "studio-rpc-usb-uart input-trackpad-mini input-split-left-trackpad-mini"
     artifact-name: zen_left_trackpad_peripheral
   - board: bmp_boost

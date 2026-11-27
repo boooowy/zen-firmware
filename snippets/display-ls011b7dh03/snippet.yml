@@ -1,0 +1,4 @@
+name: display-ls011b7dh03
+append:
+  EXTRA_DTC_OVERLAY_FILE: display-ls011b7dh03.overlay
+  EXTRA_CONF_FILE: display-ls011b7dh03.conf

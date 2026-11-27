@@ -1,5 +1,15 @@
 manifest:
   remotes:
+    # Our fork of ZMK, not upstream. v0.3-zen is v0.3 plus two commits:
+    #   fix(split): retry peripheral advertising when it fails to start
+    #     -- without it a peripheral that loses the bt_le_adv_start() race on
+    #        reconnect goes silent until its power switch is cycled.
+    #   feat(combo): let combos be rewritten while the keyboard runs
+    #     -- combos[] is const upstream, so editable combo slots cannot be
+    #        done from a module. Inert unless CONFIG_ZEN_RUNTIME_COMBO is set.
+    # See docs/zmk-fork.md before bumping the revision below.
+    - name: e24-gh
+      url-base: https://github.com/E24-GH
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
     - name: sekigon-gonnoc
@@ -12,8 +22,8 @@ manifest:
       url-base: https://github.com/badjeff
   projects:
     - name: zmk
-      remote: zmkfirmware
-      revision: v0.3
+      remote: e24-gh
+      revision: v0.3-zen
       import: app/west.yml
     - name: zmk-component-bmp-boost
       remote: sekigon-gonnoc

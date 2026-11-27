@@ -36,7 +36,8 @@
 &pointing_listener {
     input-processors =
         <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,
-        <&zip_delay_temp_layer 1 1000>;
+        <&zip_delay_temp_layer 1 1000>,
+        <&zen_pointer_live_scale>;
 
     scroller {
         layers = <4>;
@@ -49,12 +50,15 @@
 
     /* 速度プリセットでは zip_delay_temp_layer を zip_xy_scaler より「前」に置く。
        後ろに置くと縮小後の移動量で activation-distance を判定してしまい、
-       プリセットが遅いほどマウスレイヤーに入りにくくなる */
+       プリセットが遅いほどマウスレイヤーに入りにくくなる。
+       子ノードには process-next がなく親の処理を通らないので、Configurator の
+       速度設定 (zen_pointer_live_scale) もここで改めて掛ける */
     speed_preset_a {
         layers = <7>;
         input-processors =
             <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,
             <&zip_delay_temp_layer 1 1000>,
+            <&zen_pointer_live_scale>,
             <&zip_xy_scaler 4 5>;
     };
 
@@ -63,6 +67,7 @@
         input-processors =
             <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,
             <&zip_delay_temp_layer 1 1000>,
+            <&zen_pointer_live_scale>,
             <&zip_xy_scaler 3 5>;
     };
 
@@ -71,6 +76,7 @@
         input-processors =
             <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,
             <&zip_delay_temp_layer 1 1000>,
+            <&zen_pointer_live_scale>,
             <&zip_xy_scaler 2 5>;
     };
 };

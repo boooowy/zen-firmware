@@ -1,0 +1,62 @@
+#include <input/processors.dtsi>
+#include <dt-bindings/zmk/input_transform.h>
+
+/*
+ * The right-hand PMW3610 reaching the LEFT half, which is the central on an
+ * LCD build. The peripheral sends raw sensor events -- its pointing_listener
+ * stays disabled and the input-split node carries no processors -- so this
+ * has to do everything the shipping central does locally.
+ *
+ * The chain below is what a shipping zen_right build actually resolves to.
+ * Note that is NOT what boards/shields/zen/zen_right.overlay says: the
+ * input-trackball-pmw3610 snippet is applied after the shield overlay and
+ * replaces the transform with XY_SWAP. Read the built zephyr.dts, not the
+ * overlay, when changing these.
+ *
+ * zen_pointer_live_scale is what the Configurator's speed, inversion and
+ * rotation settings act on; zen_auto_mouse is what its auto-mouse settings
+ * act on. The LCD branch used stock ZMK parts here, so those settings read
+ * back fine and changed nothing.
+ *
+ * The scroller is an override, not a replacement: ZMK runs its processors
+ * first and then, because of process-next, the base chain as well.
+ */
+
+/ {
+    right_pmw3610_scroll_scaler: right_pmw3610_scroll_scaler {
+        compatible = "zmk,input-processor-scaler";
+        #input-processor-cells = <2>;
+        type = <INPUT_EV_REL>;
+        codes = <INPUT_REL_WHEEL INPUT_REL_HWHEEL>;
+        track-remainders;
+    };
+
+    split_inputs {
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        right_trackball_pmw3610_split: right_trackball_pmw3610_split@0 {
+            compatible = "zmk,input-split";
+            reg = <0>;
+        };
+    };
+
+    right_trackball_pmw3610_listener: right_trackball_pmw3610_listener {
+        compatible = "zmk,input-listener";
+        device = <&right_trackball_pmw3610_split>;
+        status = "okay";
+        input-processors =
+            <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,
+            <&zen_pointer_live_scale>,
+            <&zen_auto_mouse>;
+
+        scroller {
+            layers = <4>;
+            input-processors =
+                <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>,
+                <&zip_xy_to_scroll_mapper>,
+                <&right_pmw3610_scroll_scaler 1 20>;
+            process-next;
+        };
+    };
+};
